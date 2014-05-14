@@ -1,0 +1,7 @@
+.idea
+vendor
+node_modules
+csv/.*
+csv/csv.txt
+UI/.sass-cache
+stuff/.*
