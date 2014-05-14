@@ -5,11 +5,14 @@ var app = angular.module('app', ['vr.directives.slider']);
 app.controller('AppCtrl', function ($scope, $http) {
     $scope.csv_data      = false;
     $scope.widget_height = '0px';
+    $scope.tips          = {};
 
     // dictionaries
     $scope.periods    = [0, 1, 4, 8, 13, 26, 52, 104];
     $scope.paid_names = ['Paid Monthly', 'Paid Weekly'];
     $scope.max_amount = [8333, 1923];
+    $scope.min_value  = [5, 0];
+    $scope.divides    = [1, 4];
 
     // default values
     $scope.paid_type  = 0;
@@ -73,6 +76,10 @@ app.controller('AppCtrl', function ($scope, $http) {
         window.print();
     }
 
+    $scope.toggleHelp = function (idx) {
+        $scope.tips[idx] = !$scope.tips[idx];
+    }
+
     // check max amount value
     function check_amount () {
         $scope.amount = Math.min($scope.amount, $scope.max_amount[$scope.paid_type]);
@@ -100,20 +107,26 @@ app.controller('AppCtrl', function ($scope, $http) {
 
     // weekly, monthly
     function get_divide () {
-        return $scope.paid_type ? 1 : 4;
+        return $scope.divides[$scope.paid_type];
+    }
+
+    // minimum price value (weekly, monthly)
+    function get_min_value () {
+        return $scope.min_value[$scope.paid_type];
     }
 
     // calc single price value
-    function calc_value (idx) {
-        return round($scope.amount * get_multiplier(idx)) || 0;
+    function calc_value (idx, min) {
+        var value = $scope.amount * get_multiplier(idx);
+        return round(Math.max(value, min || 0));
     }
 
-    function calc_info (idx) {
-        return $scope.amount + ' x ' + get_multiplier(idx) + ' = ' + calc_value(idx);
-    }
-
-    function toggleHelp(i) {
-        // TODO
+    function calc_info (idx, min) {
+        var info = $scope.amount + ' x ' + get_multiplier(idx) + ' = ' + calc_value(idx);
+        if (min) {
+            info = info + ' (minimum: ' + min + ')';
+        }
+        return info;
     }
 
     // calculate
@@ -126,17 +139,19 @@ app.controller('AppCtrl', function ($scope, $http) {
             // console.log($scope.paid_type, 'paid_type');
             // console.log($scope.period, 'period');
 
+            var min_value = get_min_value();
+
             // calculate
-            $scope.personal_guaranteed        = calc_value(0);
-            $scope.personal_reviewable        = calc_value(1);
-            $scope.budget_personal_guaranteed = calc_value(2);
-            $scope.budget_personal_reviewable = calc_value(3);
+            $scope.personal_guaranteed        = calc_value(0, min_value);
+            $scope.personal_reviewable        = calc_value(1, min_value);
+            $scope.budget_personal_guaranteed = calc_value(2, min_value);
+            $scope.budget_personal_reviewable = calc_value(3, min_value);
 
             // infos
-            $scope.personal_guaranteed_info        = calc_info(0);
-            $scope.personal_reviewable_info        = calc_info(1);
-            $scope.budget_personal_guaranteed_info = calc_info(2);
-            $scope.budget_personal_reviewable_info = calc_info(3);
+            $scope.personal_guaranteed_info        = calc_info(0, min_value);
+            $scope.personal_reviewable_info        = calc_info(1, min_value);
+            $scope.budget_personal_guaranteed_info = calc_info(2, min_value);
+            $scope.budget_personal_reviewable_info = calc_info(3, min_value);
         }
     }
 
