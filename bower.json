@@ -1,0 +1,13 @@
+{
+  "name": "b2",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "<1.10.3",
+    "html5shiv": "~3.7.0",
+    "modernizr": "2.7.2",
+    "angular": "~1.2.16",
+    "venturocket-angular-slider": "~0.3.2",
+    "angular-touch": "~1.2.16",
+    "jspdf": "git://github.com/MrRio/jsPDF.git"
+  }
+}

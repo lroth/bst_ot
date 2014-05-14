@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="UI/css/screen.css">
+        <script src="vendor/jspdf/dist/jspdf.min.js"></script>
+        <script src="vendor/modernizr/modernizr.js"></script>
+        <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-touch/angular-touch.min.js"></script>
+        <script src="vendor/venturocket-angular-slider/build/angular-slider.min.js"></script>
+        <!--[if lt IE 9]>
+            <script src="vendor/html5shiv/dist/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+    <body ng-app="app">
+        <div id="personalSickWidget" ng-controller="AppCtrl" style="height: {{ widget_height }}; overflow: hidden;">
+            <h1>Quick Quote <span>Personal Sick Pay</span></h1>
+            <div class="personal-widget-form">
+                <h2>Client details</h2>
+                <fieldset>
+                    <label>Client age at start <i></i></label>
+                    <slider floor='17' ceiling='59' step='1' precision='0' ng-model='age_start'></slider>
+                </fieldset>
+                <fieldset>
+                    <label>Client age at end <i></i></label>
+                    <slider floor='50' ceiling='70' step='1' precision='0' ng-model='age_end'></slider>
+                </fieldset>
+                <fieldset>
+                    <label>Cover amount <i></i></label>
+                    <div class="input-prepend">
+                      <span class="add-on">&pound;</span>
+                      <input type="text" ng-model="amount">
+                    </div>
+                    <div class="switcher">
+                        {{ paid_names[paid_type] }} <a href="#" ng-click="changePaid()">Change</a>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <label>Waiting periods <i></i></label>
+                    <slider floor='0' ceiling='6' ng-model='period' translate-fn='translateFn'></slider>
+                </fieldset>
+            </div>
+            <div class="personal-widget-results" id="results">
+                <h2>Monthly future prices options for <span>{{ amount }}</span> of <span>{{ paid_names[paid_type] }}</span>:</h2>
+                <p>
+                    <span>Personal Sick Pay with guaranteed future prices:</span> &pound;{{ personal_guaranteed }}
+                </p>
+                <small>{{ personal_guaranteed_info }}</small>
+                <div class="help">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis  nostrud exerci tation ullamcorper suscipit lobortis nisl.
+                </div>
+                <p>
+                    <span class="sec">Personal Sick Pay with reviewable future prices:</span> &pound;{{ personal_reviewable }}
+                </p>
+                <small>{{ personal_reviewable_info }}</small>
+                <p>
+                    <span class="thrd">Budget Personal Sick Pay with guaranteed future prices:</span> &pound;{{ budget_personal_guaranteed }}
+                </p>
+                <small>{{ budget_personal_guaranteed_info }}</small>
+                <p>
+                    <span class="frth">Budget Personal Sick Pay with reviewable future prices:</span> &pound;{{ budget_personal_reviewable }}
+                </p>
+                <small>{{ budget_personal_reviewable_info }}</small>
+                <small>‘Indicative’ only, subject to earning and underwriting. These are monthly future prices in the <br/> first year and that future prices will go up based on clients age and amount of cover.</small>
+            </div>
+            <!--<div class="personal-widget-actions">
+                <form action="" method="post" accept-charset="utf-8" class="email-form" ng-show="send_email" ng-submit="triggerSendEmail()">
+                    <label>Email address: </label>
+                    <input type="text" ng-model="email"/>
+                    <input type="submit" class="btn" value="Send"/>
+                </form>
+
+                <a href="#" class="btn" ng-click="sendEmail()">Email</a>
+                <a href="#" class="btn" ng-click="getPdf()">PDF</a>
+                <a href="#" class="btn" ng-click="print('results')">Print</a>
+            </div>-->
+        </div>
+        <script src="UI/js/app.js"></script>
+   </body>
+</html>

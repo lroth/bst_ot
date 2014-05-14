@@ -1,0 +1,9 @@
+
+There are 4 user entered variables (Client Age - 18 to 50, Client age at end - blocks of age 50-60 etc, Cover amount - entered manually and had option of monthly or weekly, and finally waiting period - fixed set of data fields in weeks). There are also 4 output figures from the data, different premiums for guaranteed, reviewable and budget Personal Sick Pay.
+We are flexible on the framework used to build it as we plan for you to build, develop and maintain it (if needed).
+The design is based on a bootstrap layout but again this is just a guide.
+The sliders on the page to choose the values were chosen based on the examples at the link:
+From my discussions with Ross, the data will need to be in arrays, and the basic calculation needed is the amount entered in the ‘Cover Amount’ form field multiplied by the decimal number from the array (chosen by the other options chosen by the user from the form field).
+We want the tool to be dynamic, so once an amount is entered in ‘Cover Amount’, the 4 premiums will change as the sliders are moved.
+The buttons at the bottom will all create a PDF of the tool to either email, save or print.
+As it’s in an iFrame popups may cause a problem so the ‘info’ buttons will need to be jQuery (but we will be advised on this by you). Also we will need to ensure the CSS is unique so as conflicts with the parent website don’t arise.

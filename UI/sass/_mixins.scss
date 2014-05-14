@@ -1,0 +1,46 @@
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+@mixin clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Placeholder mixin
+// @link https://github.com/michaelsacca/Compass-Placeholder-Text-Mixin/blob/master/_placeholderText.scss
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+// Triangle mixin
+// @link https://gist.github.com/dustinhorton/82a89fcff9dea1251333#file-sass-triangle-mixin-2-sass
+@mixin triangle($dir, $size, $color) {
+    border: $size transparent solid;
+
+    @if ($dir == "top" or $dir == "up") {
+        border-bottom-color: $color;
+    }
+    @else if ($dir == "right" or $dir == "after") {
+        border-left-color: $color;
+    }
+    @else if ($dir == "bottom" or $dir == "down") {
+        border-top-color: $color;
+    }
+    @else if ($dir == "left" or $dir == "before") {
+        border-right-color: $color;
+    }
+}

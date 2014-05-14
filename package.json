@@ -1,0 +1,20 @@
+{
+  "name": "bst_ot",
+  "version": "0.1.0",
+  "repository" : {
+    "type" : "git",
+    "url" : "git@github.com:Bitnoise/BtnFrontendSandbox.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-jshint": "~0.6.4",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-cssmin": "~0.6.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-groundskeeper": "~0.1.6",
+    "grunt-h5bp-cachebuster": "~0.1.0",
+    "grunt-contrib-concat": "~0.3.0"
+  }
+}
