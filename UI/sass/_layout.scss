@@ -22,6 +22,10 @@ a, textarea, input { outline: none; }
     // -------------------------------------------------------------------------
     // General
     // -------------------------------------------------------------------------
+    i {
+      background: red;
+      padding: 3px;
+    }
     a {
       text-decoration: underline;
       color: $linkColor;
@@ -96,7 +100,7 @@ a, textarea, input { outline: none; }
                 width: 380px;
                 background: #bacb31;
                 color: #fff;
-                font-size: 14px;
+                font-size: 12px;
                 &.sec {
                     background: #90a60a;
                 }

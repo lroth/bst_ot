@@ -112,15 +112,19 @@ app.controller('AppCtrl', function ($scope, $http) {
         return $scope.amount + ' x ' + get_multiplier(idx) + ' = ' + calc_value(idx);
     }
 
+    function toggleHelp(i) {
+        // TODO
+    }
+
     // calculate
     function calc () {
         if ($scope.csv_data) {
             // new data from scope update
-            console.log($scope.age_start, 'age_start');
-            console.log($scope.age_end, 'age_end');
-            console.log($scope.amount, 'amount');
-            console.log($scope.paid_type, 'paid_type');
-            console.log($scope.period, 'period');
+            // console.log($scope.age_start, 'age_start');
+            // console.log($scope.age_end, 'age_end');
+            // console.log($scope.amount, 'amount');
+            // console.log($scope.paid_type, 'paid_type');
+            // console.log($scope.period, 'period');
 
             // calculate
             $scope.personal_guaranteed        = calc_value(0);

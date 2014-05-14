@@ -85,32 +85,37 @@ a, textarea, input {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-family: Tahoma, sans-serif;
   color: #214657;
   font-size: 14px;
   font-weight: 300;
 }
 /* line 25, ../sass/_layout.scss */
+#personalSickWidget i {
+  background: red;
+  padding: 3px;
+}
+/* line 29, ../sass/_layout.scss */
 #personalSickWidget a {
   text-decoration: underline;
   color: #bacb31;
 }
-/* line 28, ../sass/_layout.scss */
+/* line 32, ../sass/_layout.scss */
 #personalSickWidget a:hover {
   text-decoration: none;
 }
-/* line 34, ../sass/_layout.scss */
+/* line 38, ../sass/_layout.scss */
 #personalSickWidget h1 {
   font-size: 28px;
   font-weight: 700;
   color: #bacb31;
   margin-bottom: 15px;
 }
-/* line 39, ../sass/_layout.scss */
+/* line 43, ../sass/_layout.scss */
 #personalSickWidget h1 span {
   color: #214657;
 }
-/* line 44, ../sass/_layout.scss */
+/* line 48, ../sass/_layout.scss */
 #personalSickWidget h2 {
   font-size: 18px;
   font-weight: 400;
@@ -119,16 +124,16 @@ a, textarea, input {
   margin-bottom: 18px;
   color: #214657;
 }
-/* line 51, ../sass/_layout.scss */
+/* line 55, ../sass/_layout.scss */
 #personalSickWidget h2 span {
   color: #bacb31;
   font-weight: bold;
 }
-/* line 57, ../sass/_layout.scss */
+/* line 61, ../sass/_layout.scss */
 #personalSickWidget strong {
   font-weight: bold;
 }
-/* line 65, ../sass/_layout.scss */
+/* line 69, ../sass/_layout.scss */
 #personalSickWidget .personal-widget-results,
 #personalSickWidget .personal-widget-form {
   border: solid 2px #dadada;
@@ -140,11 +145,11 @@ a, textarea, input {
   border-radius: 5px;
   margin-bottom: 20px;
 }
-/* line 71, ../sass/_layout.scss */
+/* line 75, ../sass/_layout.scss */
 #personalSickWidget .personal-widget-actions {
   text-align: right;
 }
-/* line 75, ../sass/_layout.scss */
+/* line 79, ../sass/_layout.scss */
 #personalSickWidget .personal-widget-results p {
   height: 36px;
   background: #fff;
@@ -162,7 +167,7 @@ a, textarea, input {
   position: relative;
   padding: 0 18px;
 }
-/* line 87, ../sass/_layout.scss */
+/* line 91, ../sass/_layout.scss */
 #personalSickWidget .personal-widget-results p span {
   position: absolute;
   top: 0;
@@ -179,26 +184,26 @@ a, textarea, input {
   width: 380px;
   background: #bacb31;
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
 }
-/* line 100, ../sass/_layout.scss */
+/* line 104, ../sass/_layout.scss */
 #personalSickWidget .personal-widget-results p span.sec {
   background: #90a60a;
 }
-/* line 103, ../sass/_layout.scss */
+/* line 107, ../sass/_layout.scss */
 #personalSickWidget .personal-widget-results p span.thrd {
   background: #5d8fa2;
 }
-/* line 106, ../sass/_layout.scss */
+/* line 110, ../sass/_layout.scss */
 #personalSickWidget .personal-widget-results p span.frth {
   background: #4c6f83;
 }
-/* line 111, ../sass/_layout.scss */
+/* line 115, ../sass/_layout.scss */
 #personalSickWidget .personal-widget-results small {
   font-size: 10px;
   color: #000;
 }
-/* line 117, ../sass/_layout.scss */
+/* line 121, ../sass/_layout.scss */
 #personalSickWidget .help {
   color: #000;
   font-size: 12px;
@@ -212,7 +217,7 @@ a, textarea, input {
   padding: 12px 65px 12px 15px;
   margin-bottom: 9px;
 }
-/* line 127, ../sass/_layout.scss */
+/* line 131, ../sass/_layout.scss */
 #personalSickWidget label {
   width: 160px;
   display: block;
@@ -223,12 +228,12 @@ a, textarea, input {
   text-align: right;
   font-size: 14px;
 }
-/* line 139, ../sass/_layout.scss */
+/* line 143, ../sass/_layout.scss */
 #personalSickWidget fieldset {
   margin-bottom: 12px;
   position: relative;
 }
-/* line 146, ../sass/_layout.scss */
+/* line 150, ../sass/_layout.scss */
 #personalSickWidget .switcher {
   display: inline-block;
   white-space: nowrap;
@@ -248,7 +253,7 @@ a, textarea, input {
   font-size: 14px;
   position: relative;
 }
-/* line 160, ../sass/_layout.scss */
+/* line 164, ../sass/_layout.scss */
 #personalSickWidget .switcher a {
   display: block;
   height: 26px;
@@ -269,20 +274,20 @@ a, textarea, input {
   font-weight: normal;
   text-decoration: none;
 }
-/* line 181, ../sass/_layout.scss */
+/* line 185, ../sass/_layout.scss */
 #personalSickWidget .email-form {
   margin-bottom: 15px;
   width: 420px;
   margin-left: 224px;
 }
-/* line 190, ../sass/_layout.scss */
+/* line 194, ../sass/_layout.scss */
 #personalSickWidget slider {
   display: inline-block;
   position: relative;
   height: 35px;
   width: 390px;
 }
-/* line 197, ../sass/_layout.scss */
+/* line 201, ../sass/_layout.scss */
 #personalSickWidget slider span.bar {
   height: 100%;
   z-index: 0;
@@ -296,18 +301,18 @@ a, textarea, input {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 210, ../sass/_layout.scss */
+/* line 214, ../sass/_layout.scss */
 #personalSickWidget slider span.bar.selection {
   background: #0a0;
   opacity: 0.5;
 }
-/* line 215, ../sass/_layout.scss */
+/* line 219, ../sass/_layout.scss */
 #personalSickWidget slider span.bar.unselected {
   width: auto;
   background: #a00;
   opacity: 0.5;
 }
-/* line 221, ../sass/_layout.scss */
+/* line 225, ../sass/_layout.scss */
 #personalSickWidget slider span.pointer {
   cursor: pointer;
   width: 58px;
@@ -320,7 +325,7 @@ a, textarea, input {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 236, ../sass/_layout.scss */
+/* line 240, ../sass/_layout.scss */
 #personalSickWidget slider span.bubble {
   font-size: 17px;
   line-height: 35px;
@@ -332,19 +337,19 @@ a, textarea, input {
   font-weight: bold;
   width: 58px;
 }
-/* line 248, ../sass/_layout.scss */
+/* line 252, ../sass/_layout.scss */
 #personalSickWidget slider span.bubble.selection, #personalSickWidget slider span.bubble.limit {
   top: 25%;
 }
-/* line 252, ../sass/_layout.scss */
+/* line 256, ../sass/_layout.scss */
 #personalSickWidget slider span.bubble.limit {
   display: none !important;
 }
-/* line 256, ../sass/_layout.scss */
+/* line 260, ../sass/_layout.scss */
 #personalSickWidget ::-ms-tooltip {
   display: none;
 }
-/* line 260, ../sass/_layout.scss */
+/* line 264, ../sass/_layout.scss */
 #personalSickWidget #slider-container {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -353,7 +358,7 @@ a, textarea, input {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 273, ../sass/_layout.scss */
+/* line 277, ../sass/_layout.scss */
 #personalSickWidget input[type="text"] {
   display: inline-block;
   height: 18px;
@@ -366,7 +371,7 @@ a, textarea, input {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-/* line 286, ../sass/_layout.scss */
+/* line 290, ../sass/_layout.scss */
 #personalSickWidget input[type="text"] {
   background-color: #ffffff;
   border: 1px solid #cccccc;
@@ -378,7 +383,7 @@ a, textarea, input {
   -o-transition: border linear 0.2s, box-shadow linear 0.2s;
   transition: border linear 0.2s, box-shadow linear 0.2s;
 }
-/* line 298, ../sass/_layout.scss */
+/* line 302, ../sass/_layout.scss */
 #personalSickWidget input[type="text"]:focus {
   border-color: rgba(82, 168, 236, 0.8);
   outline: 0;
@@ -388,7 +393,7 @@ a, textarea, input {
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
-/* line 312, ../sass/_layout.scss */
+/* line 316, ../sass/_layout.scss */
 #personalSickWidget .btn {
   display: inline-block;
   *display: inline;
@@ -414,7 +419,7 @@ a, textarea, input {
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
-/* line 343, ../sass/_layout.scss */
+/* line 347, ../sass/_layout.scss */
 #personalSickWidget .btn:hover,
 #personalSickWidget .btn:focus,
 #personalSickWidget .btn:active,
@@ -425,12 +430,12 @@ a, textarea, input {
   background-color: #e6e6e6;
   *background-color: #d9d9d9;
 }
-/* line 350, ../sass/_layout.scss */
+/* line 354, ../sass/_layout.scss */
 #personalSickWidget .btn:active,
 #personalSickWidget .btn.active {
   background-color: #cccccc \9;
 }
-/* line 356, ../sass/_layout.scss */
+/* line 360, ../sass/_layout.scss */
 #personalSickWidget .btn:hover,
 #personalSickWidget .btn:focus {
   color: #333333;
@@ -441,14 +446,14 @@ a, textarea, input {
   -o-transition: background-position 0.1s linear;
   transition: background-position 0.1s linear;
 }
-/* line 370, ../sass/_layout.scss */
+/* line 374, ../sass/_layout.scss */
 #personalSickWidget .input-prepend {
   display: inline-block;
   font-size: 0;
   white-space: nowrap;
   vertical-align: middle;
 }
-/* line 377, ../sass/_layout.scss */
+/* line 381, ../sass/_layout.scss */
 #personalSickWidget .input-prepend input {
   width: 179px;
   font-size: 14px;
@@ -460,7 +465,7 @@ a, textarea, input {
   -moz-border-radius: 0 4px 4px 0;
   border-radius: 0 4px 4px 0;
 }
-/* line 389, ../sass/_layout.scss */
+/* line 393, ../sass/_layout.scss */
 #personalSickWidget .input-prepend .add-on {
   display: inline-block;
   width: auto;
@@ -476,7 +481,7 @@ a, textarea, input {
   border: 1px solid #ccc;
   color: #959595;
 }
-/* line 406, ../sass/_layout.scss */
+/* line 410, ../sass/_layout.scss */
 #personalSickWidget .input-prepend.input-append input {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;

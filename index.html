@@ -31,7 +31,7 @@
                     <slider floor='50' ceiling='70' step='1' precision='0' ng-model='age_end'></slider>
                 </fieldset>
                 <fieldset>
-                    <label>Cover amount <i></i></label>
+                    <label>Cover amount <i>i</i></label>
                     <div class="input-prepend">
                       <span class="add-on">&pound;</span>
                       <input type="text" ng-model="amount">
@@ -46,13 +46,14 @@
                 </fieldset>
             </div>
             <div class="personal-widget-results" id="results">
-                <h2>Monthly future prices options for <span>{{ amount }}</span> of <span>{{ paid_names[paid_type] }}</span>:</h2>
+                <h2>Resulting monthly premium options for <span>{{ amount }}</span> of <span>{{ paid_names[paid_type] }}</span>:</h2>
                 <p>
-                    <span>Personal Sick Pay with guaranteed future prices:</span> &pound;{{ personal_guaranteed }}
+                    <span>Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(2)">i</i></span> &pound;{{ personal_guaranteed }}
                 </p>
                 <small>{{ personal_guaranteed_info }}</small>
-                <div class="help">
+                <div class="help" ng-show="tip[2]">
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis  nostrud exerci tation ullamcorper suscipit lobortis nisl.
+                    <i ng-click="toggleHelp(2)">X</i>
                 </div>
                 <p>
                     <span class="sec">Personal Sick Pay with reviewable future prices:</span> &pound;{{ personal_reviewable }}
@@ -68,6 +69,7 @@
                 <small>{{ budget_personal_reviewable_info }}</small>
                 <small>‘Indicative’ only, subject to earning and underwriting. These are monthly future prices in the <br/> first year and that future prices will go up based on clients age and amount of cover.</small>
             </div>
+            21441950 05/14
             <!--<div class="personal-widget-actions">
                 <form action="" method="post" accept-charset="utf-8" class="email-form" ng-show="send_email" ng-submit="triggerSendEmail()">
                     <label>Email address: </label>
