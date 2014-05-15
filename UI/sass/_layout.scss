@@ -23,9 +23,55 @@ a, textarea, input { outline: none; }
     // General
     // -------------------------------------------------------------------------
     i {
-      background: red;
-      padding: 3px;
+      // background: red;
+      // padding: 3px;
       cursor: pointer;
+    }
+
+    fieldset {
+      label {
+        i {
+          background: #214657 url(../images/info.png) 8px 4px no-repeat;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          @include border-radius(10px);
+          margin-left: 7px;
+          margin-bottom: -7px;
+        }
+      }
+    }
+    div.help {
+      position: relative;
+      i {
+          background: url(../images/cross.png) 4px 4px no-repeat;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 50%;
+          right: 20px;
+          margin-top: -10px;
+      }
+    }
+    .personal-widget-results {
+      p {
+        span {
+          position: relative;
+          i {
+            background: #214657 url(../images/info.png) 8px 4px no-repeat;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            @include border-radius(10px);
+            position: absolute;
+            top: 50%;
+            right: 8px;
+            margin-top: -10px;
+
+          }
+        }
+      }
     }
     a {
       text-decoration: underline;
@@ -144,6 +190,13 @@ a, textarea, input { outline: none; }
     fieldset {
         margin-bottom: 12px;
         position: relative;
+        .note {
+          margin-left: 180px;
+          font-size: 13px;
+          color: #959595;
+          margin-top: 5px;
+          font-weight: bold;
+        }
     }
     // ---------------------------------------------------------------------------
     // weekly/monthly switcher
