@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="personal-widget-results" id="results">
-                <h2>Resulting monthly premium options for <span>£{{ amount }} {{ paid_names[paid_type] }}</span>:</h2>
+                <h2>Resulting monthly premium options for <span>{{ amount }}</span> of <span>{{ paid_names[paid_type] }}</span>:</h2>
                 <p>
                     <span>Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(4)">i</i></span> &pound;{{ personal_guaranteed }}
                 </p>
@@ -100,13 +100,7 @@
                     In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again, but up to a maximum of two years for each claim. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
                     <i ng-click="toggleHelp(7)">X</i>
                 </div>
-                <small>The results displayed
-                    <ul>
-                        <li>are indicative only and do not take into account any relevant eligibility or earnings rules or underwriting assessments.</li>
-                        <li>are monthly premiums payable in the first year. Premiums will go up based on your client’s age and amount of cover.</li>
-                        <li>do not include any Waiver of Premium benefit or any plan discounts that may apply.</li>
-                    </ul>
-                </small>
+                <small>‘Indicative’ only, subject to earning and underwriting. These are monthly future prices in the <br/> first year and that future prices will go up based on clients age and amount of cover.</small>
             </div>
             21441950 05/14
             <!--<div class="personal-widget-actions">

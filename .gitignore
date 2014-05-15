@@ -6,3 +6,4 @@ csv/.*
 csv/csv.txt
 UI/.sass-cache
 stuff/.*
+.DS_Store
