@@ -12,12 +12,13 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.paid_names = ['Paid Monthly', 'Paid Weekly'];
     $scope.max_amount = [8333, 1923];
     $scope.min_value  = [5, 0];
-    $scope.divides    = [1, 4];
+    $scope.divides    = [13 / 3, 3 / 13];
 
     // default values
-    $scope.paid_type  = 0;
-    $scope.amount     = 0;
-    $scope.send_email = false;
+    $scope.paid_type       = 0;
+    $scope.amount          = 0;
+    $scope.send_email      = false;
+    $scope.age_range_error = false;
 
     // default results
     $scope.personal_guaranteed        = 0;
@@ -49,7 +50,7 @@ app.controller('AppCtrl', function ($scope, $http) {
     // paid switcher
     $scope.changePaid = function () {
         $scope.paid_type = +(!$scope.paid_type);
-        $scope.checkAmount();
+        $scope.amount    = Math.round($scope.amount * get_divide());
     }
 
     // open/close send email form
@@ -59,7 +60,6 @@ app.controller('AppCtrl', function ($scope, $http) {
 
     // send email action
     $scope.triggerSendEmail = function () {
-        console.log($scope.email);
         // TODO: validate email and send this to some
         // php backend script and send email
     }
@@ -102,7 +102,7 @@ app.controller('AppCtrl', function ($scope, $http) {
 
     // get future price multiplier
     function get_multiplier (idx) {
-        return $scope.csv_data[$scope.age_start][get_range($scope.age_end)][idx][$scope.period] * get_divide();
+        return $scope.csv_data[$scope.age_start][get_range($scope.age_end)][idx][$scope.period];
     }
 
     // weekly, monthly
@@ -155,7 +155,18 @@ app.controller('AppCtrl', function ($scope, $http) {
         }
     }
 
+    function check_age_range () {
+        if ($scope.csv_data) {
+            if ($scope.age_start > $scope.age_end) {
+                $scope.age_range_error = 'Client age at start cannot be greater than age at end';
+            } else {
+                $scope.age_range_error = '';
+            }
+        }
+    }
+
     // watch for changes of this values
+    $scope.$watch('age_start + age_end', check_age_range);
     $scope.$watch('amount + paid_type', check_amount);
     $scope.$watch('amount + age_start + age_end + paid_type + period', calc);
 

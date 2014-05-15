@@ -116,6 +116,13 @@ a, textarea, input { outline: none; }
         small {
             font-size: 10px;
             color: #000;
+            ul {
+                font-size: 11px;
+                margin-left: 20px;
+                li {
+                    list-style: disc;
+                }
+            }
         }
     }
 
