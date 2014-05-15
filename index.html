@@ -22,7 +22,7 @@
             <h1>Quick Quote <span>Personal Sick Pay</span></h1>
             <div class="personal-widget-form">
                 <h2>Client details</h2>
-                <span class="error" ng-show="age_range_error">{{ age_range_error }}</span>
+                <div class="error" ng-show="age_range_error">{{ age_range_error }}</div>
                 <fieldset>
                     <label>Client age at start <i ng-click="toggleHelp(0)"></i></label>
                     <slider floor='17' ceiling='59' step='1' precision='0' ng-model='age_start'></slider>
@@ -100,6 +100,7 @@
                     In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again, but up to a maximum of two years for each claim. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
                     <i ng-click="toggleHelp(7)"></i>
                 </div>
+                <br/>
                 <small>The results displayed
                     <ul>
                         <li>are indicative only and do not take into account any relevant eligibility or earnings rules or underwriting assessments.</li>

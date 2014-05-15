@@ -205,6 +205,12 @@ a, textarea, input { outline: none; }
           font-weight: bold;
         }
     }
+    .error {
+      color: red;
+      margin-left: 180px;
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
     // ---------------------------------------------------------------------------
     // weekly/monthly switcher
     // ---------------------------------------------------------------------------
