@@ -24,23 +24,23 @@
                 <h2>Client details</h2>
                 <span class="error" ng-show="age_range_error">{{ age_range_error }}</span>
                 <fieldset>
-                    <label>Client age at start <i ng-click="toggleHelp(0)">i</i></label>
+                    <label>Client age at start <i ng-click="toggleHelp(0)"></i></label>
                     <slider floor='17' ceiling='59' step='1' precision='0' ng-model='age_start'></slider>
                 </fieldset>
                 <div class="help" ng-show="tips[0]">
                     Your client can apply for LV= Personal Sick Pay provided they are aged between 17 years and 59 years inclusive, at entry.
-                    <i ng-click="toggleHelp(0)">X</i>
+                    <i ng-click="toggleHelp(0)"></i>
                 </div>
                 <fieldset>
-                    <label>Client age at end <i ng-click="toggleHelp(1)">i</i></label>
+                    <label>Client age at end <i ng-click="toggleHelp(1)"></i></label>
                     <slider floor='50' ceiling='70' step='1' precision='0' ng-model='age_end'></slider>
                 </fieldset>
                 <div class="help" ng-show="tips[1]">
                     Subject to a minimum term of 5 years, your client can choose for their LV= Personal Sick Pay cover to end when they are aged between 50 years and 70 years inclusive.
-                    <i ng-click="toggleHelp(1)">X</i>
+                    <i ng-click="toggleHelp(1)"></i>
                 </div>
                 <fieldset>
-                    <label>Cover amount <i ng-click="toggleHelp(2)">i</i></label>
+                    <label>Cover amount <i ng-click="toggleHelp(2)"></i></label>
                     <div class="input-prepend">
                       <span class="add-on">&pound;</span>
                       <input type="text" ng-model="amount">
@@ -51,56 +51,62 @@
                 </fieldset>
                 <div class="help" ng-show="tips[2]">
                     Subject to our eligibility and earnings rules, your client can buy cover up to a maximum of £8,333 a month (equivalent to £1,923 a week). When they claim, they can choose if they want benefits to be paid weekly or monthly. The minimum monthly premium is £5.
-                    <i ng-click="toggleHelp(2)">X</i>
+                    <i ng-click="toggleHelp(2)"></i>
                 </div>
                 <fieldset>
-                    <label>Waiting periods <i ng-click="toggleHelp(3)">i</i></label>
+                    <label>Waiting periods <i ng-click="toggleHelp(3)"></i></label>
                     <slider floor='0' ceiling='7' ng-model='period' translate-fn='translateFn'></slider>
                 </fieldset>
                 <div class="help" ng-show="tips[3]">
                     Your client can choose when they want their LV= Personal Sick Pay Benefits to start.  We offer a ‘day one’ option or 1, 4, 8, 13, 26, 52 or 104 week options.
-                    <i ng-click="toggleHelp(3)">X</i>
+                    <i ng-click="toggleHelp(3)"></i>
                 </div>
             </div>
             <div class="personal-widget-results" id="results">
                 <h2>Resulting monthly premium options for <span>{{ amount }}</span> of <span>{{ paid_names[paid_type] }}</span>:</h2>
                 <p>
-                    <span>Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(4)">i</i></span> &pound;{{ personal_guaranteed }}
+                    <span>Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(4)"></i></span> &pound;{{ personal_guaranteed }}
                 </p>
                 <small>{{ personal_guaranteed_info }}</small>
                 <div class="help" ng-show="tips[4]">
                     The price your client pays in the future for each £1 of LV= Personal Sick Pay cover is guaranteed to go up each year at the rate set out in our guaranteed future prices table.<br/>
                     In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
-                    <i ng-click="toggleHelp(4)">X</i>
+                    <i ng-click="toggleHelp(4)"></i>
                 </div>
                 <p>
-                    <span class="sec">Personal Sick Pay with reviewable future prices: <i ng-click="toggleHelp(5)">i</i></span> &pound;{{ personal_reviewable }}
+                    <span class="sec">Personal Sick Pay with reviewable future prices: <i ng-click="toggleHelp(5)"></i></span> &pound;{{ personal_reviewable }}
                 </p>
                 <small>{{ personal_reviewable_info }}</small>
                 <div class="help" ng-show="tips[5]">
                     The price your client pays in the future for each £1 of Personal Sick Pay is guaranteed to go up each year at the rate set out in our reviewable future prices table for the first five years. After that we’ll review the prices in the table every five years and the amounts quoted in the table could change (either by going up or own).<br/>
                     In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
-                    <i ng-click="toggleHelp(5)">X</i>
+                    <i ng-click="toggleHelp(5)"></i>
                 </div>
                 <p>
-                    <span class="thrd">Budget Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(6)">i</i></span> &pound;{{ budget_personal_guaranteed }}
+                    <span class="thrd">Budget Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(6)"></i></span> &pound;{{ budget_personal_guaranteed }}
                 </p>
                 <small>{{ budget_personal_guaranteed_info }}</small>
                 <div class="help" ng-show="tips[6]">
                     The price your client pays in the future for each £1 of LV= Personal Sick Pay cover is guaranteed to go up each year at the rate set out in our guaranteed future prices table.<br/>
                     In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again, but up to a maximum of two years for each claim. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
-                    <i ng-click="toggleHelp(6)">X</i>
+                    <i ng-click="toggleHelp(6)"></i>
                 </div>
                 <p>
-                    <span class="frth">Budget Personal Sick Pay with reviewable future prices: <i ng-click="toggleHelp(7)">i</i></span> &pound;{{ budget_personal_reviewable }}
+                    <span class="frth">Budget Personal Sick Pay with reviewable future prices: <i ng-click="toggleHelp(7)"></i></span> &pound;{{ budget_personal_reviewable }}
                 </p>
                 <small>{{ budget_personal_reviewable_info }}</small>
                 <div class="help" ng-show="tips[7]">
                     The price your client pays in the future for each £1 of Personal Sick Pay is guaranteed to go up each year at the rate set out in our reviewable future prices table for the first five years. After that we’ll review the prices in the table every five years and the amounts quoted in the table could change (either by going up or own).<br/>
                     In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again, but up to a maximum of two years for each claim. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
-                    <i ng-click="toggleHelp(7)">X</i>
+                    <i ng-click="toggleHelp(7)"></i>
                 </div>
-                <small>‘Indicative’ only, subject to earning and underwriting. These are monthly future prices in the <br/> first year and that future prices will go up based on clients age and amount of cover.</small>
+                <small>The results displayed
+                    <ul>
+                        <li>are indicative only and do not take into account any relevant eligibility or earnings rules or underwriting assessments.</li>
+                        <li>are monthly premiums payable in the first year. Premiums will go up based on your client’s age and amount of cover.</li>
+                        <li>do not include any Waiver of Premium benefit or any plan discounts that may apply.</li>
+                    </ul>
+                </small>
             </div>
             21441950 05/14
             <!--<div class="personal-widget-actions">
