@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="personal-widget-results" id="results">
-                <h2>Resulting monthly premium options for <span>{{ amount }}</span> of <span>{{ paid_names[paid_type] }}</span>:</h2>
+                <h2>Resulting monthly premium options for <span>£{{ amount }}</span> of cover <span>{{ paid_names[paid_type].toLowerCase() }}</span>:</h2>
                 <p>
                     <span>Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(4)"></i></span> &pound;{{ personal_guaranteed }}
                 </p>

@@ -86,7 +86,7 @@ app.controller('AppCtrl', function ($scope, $http) {
     }
 
     function round (num) {
-        return Math.round(num * 100) / 100;
+        return Number(num).toFixed(2);
     }
 
     // get range base on age_end
@@ -118,7 +118,10 @@ app.controller('AppCtrl', function ($scope, $http) {
     // calc single price value
     function calc_value (idx, min) {
         var value = $scope.amount * get_multiplier(idx);
-        return round(Math.max(value, min || 0));
+        if (value) {
+            return round(Math.max(value, min || 0));
+        }
+        return 0;
     }
 
     function calc_info (idx, min) {
