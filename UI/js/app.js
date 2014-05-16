@@ -12,11 +12,12 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.paid_names = ['Paid Monthly', 'Paid Weekly'];
     $scope.max_amount = [8333, 1923];
     $scope.min_value  = [5, 0];
-    $scope.divides    = [13 / 3, 3 / 13];
+    $scope.divides    = [4.33, 0.23];
 
     // default values
     $scope.paid_type       = 0;
     $scope.amount          = 0;
+    $scope.amount_monthly  = 0;
     $scope.send_email      = false;
     $scope.age_range_error = false;
 
@@ -50,7 +51,7 @@ app.controller('AppCtrl', function ($scope, $http) {
     // paid switcher
     $scope.changePaid = function () {
         $scope.paid_type = +(!$scope.paid_type);
-        $scope.amount    = Math.round($scope.amount * get_divide());
+        $scope.amount = Math.round($scope.amount * get_divide());
     }
 
     // open/close send email form
@@ -82,7 +83,14 @@ app.controller('AppCtrl', function ($scope, $http) {
 
     // check max amount value
     function check_amount () {
+        // limit amount based on paid type
         $scope.amount = Math.min($scope.amount, $scope.max_amount[$scope.paid_type]);
+        // save amount monthly that will be used for calculations
+        if ($scope.paid_type) {
+            $scope.amount_monthly = round($scope.amount * $scope.divides[0]);
+        } else {
+            $scope.amount_monthly = round($scope.amount);
+        }
     }
 
     function round (num) {
@@ -117,7 +125,7 @@ app.controller('AppCtrl', function ($scope, $http) {
 
     // calc single price value
     function calc_value (idx, min) {
-        var value = $scope.amount * get_multiplier(idx);
+        var value = $scope.amount_monthly * get_multiplier(idx);
         if (value) {
             return round(Math.max(value, min || 0));
         }
@@ -125,7 +133,7 @@ app.controller('AppCtrl', function ($scope, $http) {
     }
 
     function calc_info (idx, min) {
-        var info = $scope.amount + ' x ' + get_multiplier(idx) + ' = ' + calc_value(idx);
+        var info = $scope.amount_monthly + ' x ' + get_multiplier(idx) + ' = ' + calc_value(idx);
         if (min) {
             info = info + ' (minimum: ' + min + ')';
         }
