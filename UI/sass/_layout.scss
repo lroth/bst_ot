@@ -259,14 +259,14 @@ a, textarea, input { outline: none; }
     // -------------------------------------------------------------------------
     // sliders
     // -------------------------------------------------------------------------
-    slider {
+    .slider {
         display:     inline-block;
         position:    relative;
         height:      35px;
         width:       390px;
     }
 
-    slider span.bar {
+    .slider span.bar {
         height:     100%;
         z-index:    0;
         background:  #fff;
@@ -276,21 +276,21 @@ a, textarea, input { outline: none; }
         @include border-radius(5px);
     }
 
-    slider span.bar.selection, slider span.bar.unselected {
+    .slider span.bar.selection, .slider span.bar.unselected {
     }
 
-    slider span.bar.selection {
+    .slider span.bar.selection {
         background: #0a0;
         opacity:    0.5;
     }
 
-    slider span.bar.unselected {
+    .slider span.bar.unselected {
         width:      auto;
         background: #a00;
         opacity:    0.5;
     }
 
-    slider span.pointer {
+    .slider span.pointer {
         cursor:           pointer;
         width:            58px;
         top:              0;
@@ -299,13 +299,13 @@ a, textarea, input { outline: none; }
         @include border-radius(5px);
     }
 
-    slider span.pointer:hover {
+    .slider span.pointer:hover {
     }
 
-    slider span.pointer.active {
+    .slider span.pointer.active {
     }
 
-    slider span.bubble {
+    .slider span.bubble {
         font-size:   17px;
         line-height: 35px;
         font-family: sans-serif;
@@ -317,11 +317,11 @@ a, textarea, input { outline: none; }
         width:       58px;
     }
 
-    slider span.bubble.selection, slider span.bubble.limit {
+    .slider span.bubble.selection, .slider span.bubble.limit {
         top: 25%;
     }
 
-    slider span.bubble.limit {
+    .slider span.bubble.limit {
         display: none !important;
     }
 

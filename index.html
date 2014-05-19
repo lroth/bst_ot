@@ -25,7 +25,15 @@
                 <div class="error" ng-show="age_range_error">{{ age_range_error }}</div>
                 <fieldset>
                     <label>Client age at start <i ng-click="toggleHelp(0)"></i></label>
-                    <slider floor='17' ceiling='59' step='1' precision='0' ng-model='age_start'></slider>
+                    <div
+                        class="slider"
+                        slider
+                        ng-model="age_start"
+                        floor="17"
+                        ceiling="59"
+                        step="1"
+                        precision="0">
+                    </div>
                 </fieldset>
                 <div class="help" ng-show="tips[0]">
                     Your client can apply for LV= Personal Sick Pay provided they are aged between 17 years and 59 years inclusive, at entry.
@@ -33,7 +41,7 @@
                 </div>
                 <fieldset>
                     <label>Client age at end <i ng-click="toggleHelp(1)"></i></label>
-                    <slider floor='50' ceiling='70' step='1' precision='0' ng-model='age_end'></slider>
+                    <div slider class="slider" floor="50" ceiling="70" step="1" precision="0" ng-model="age_end"></div>
                 </fieldset>
                 <div class="help" ng-show="tips[1]">
                     Subject to a minimum term of 5 years, your client can choose for their LV= Personal Sick Pay cover to end when they are aged between 50 years and 70 years inclusive.
@@ -55,7 +63,7 @@
                 </div>
                 <fieldset>
                     <label>Waiting periods <i ng-click="toggleHelp(3)"></i></label>
-                    <slider floor='0' ceiling='7' ng-model='period' translate-fn='translateFn'></slider>
+                    <div slider class="slider" floor='0' ceiling='7' ng-model='period' translate-fn='translateFn'></div>
                     <div class="note">In Weeks</div>
                 </fieldset>
                 <div class="help" ng-show="tips[3]">

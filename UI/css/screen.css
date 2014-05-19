@@ -354,14 +354,14 @@ a, textarea, input {
   margin-left: 224px;
 }
 /* line 262, ../sass/_layout.scss */
-#personalSickWidget slider {
+#personalSickWidget .slider {
   display: inline-block;
   position: relative;
   height: 35px;
   width: 390px;
 }
 /* line 269, ../sass/_layout.scss */
-#personalSickWidget slider span.bar {
+#personalSickWidget .slider span.bar {
   height: 100%;
   z-index: 0;
   background: #fff;
@@ -375,18 +375,18 @@ a, textarea, input {
   border-radius: 5px;
 }
 /* line 282, ../sass/_layout.scss */
-#personalSickWidget slider span.bar.selection {
+#personalSickWidget .slider span.bar.selection {
   background: #0a0;
   opacity: 0.5;
 }
 /* line 287, ../sass/_layout.scss */
-#personalSickWidget slider span.bar.unselected {
+#personalSickWidget .slider span.bar.unselected {
   width: auto;
   background: #a00;
   opacity: 0.5;
 }
 /* line 293, ../sass/_layout.scss */
-#personalSickWidget slider span.pointer {
+#personalSickWidget .slider span.pointer {
   cursor: pointer;
   width: 58px;
   top: 0;
@@ -399,7 +399,7 @@ a, textarea, input {
   border-radius: 5px;
 }
 /* line 308, ../sass/_layout.scss */
-#personalSickWidget slider span.bubble {
+#personalSickWidget .slider span.bubble {
   font-size: 17px;
   line-height: 35px;
   font-family: sans-serif;
@@ -411,11 +411,11 @@ a, textarea, input {
   width: 58px;
 }
 /* line 320, ../sass/_layout.scss */
-#personalSickWidget slider span.bubble.selection, #personalSickWidget slider span.bubble.limit {
+#personalSickWidget .slider span.bubble.selection, #personalSickWidget .slider span.bubble.limit {
   top: 25%;
 }
 /* line 324, ../sass/_layout.scss */
-#personalSickWidget slider span.bubble.limit {
+#personalSickWidget .slider span.bubble.limit {
   display: none !important;
 }
 /* line 328, ../sass/_layout.scss */
