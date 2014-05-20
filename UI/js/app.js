@@ -129,7 +129,7 @@ app.controller('AppCtrl', function ($scope, $http) {
 
     // calculate
     function calc () {
-        if ($scope.csv_data) {
+        if ($scope.csv_data && $scope.amount > 0) {
             // new data from scope update
             // console.log($scope.age_start, 'age_start');
             // console.log($scope.age_end, 'age_end');
@@ -158,7 +158,12 @@ app.controller('AppCtrl', function ($scope, $http) {
             if ($scope.age_start > $scope.age_end) {
                 $scope.age_range_error = 'Client age at start cannot be greater than age at end';
             } else {
-                $scope.age_range_error = '';
+                // min 5 years diff
+                if ($scope.age_end - $scope.age_start < 5) {
+                    $scope.age_range_error = 'Minimum policy term is 5 years';
+                } else {
+                    $scope.age_range_error = '';
+                }
             }
         }
     }

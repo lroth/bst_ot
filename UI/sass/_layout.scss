@@ -164,13 +164,17 @@ a, textarea, input { outline: none; }
             font-size: 10px;
             color: #000;
             h6 {
-              font-size: 12px;
+              font-size: 14px;
+              margin-bottom: 10px;
+              margin-top: 20px;
             }
             ul {
-                font-size: 12px;
+                font-size: 14px;
+                line-height: 18px;
                 margin-left: 20px;
                 li {
                     list-style: disc;
+                    margin-bottom: 10px;
                 }
             }
         }
