@@ -104,7 +104,7 @@ app.controller('AppCtrl', function ($scope, $http) {
 
         //validation
         if ($scope.amount > 0 && $scope.amount < $scope.min_cover[$scope.paid_type]) {
-            $scope.cover_value_error = 'Cover amount cannot be lesser than ' + $scope.min_cover[$scope.paid_type];
+            $scope.cover_value_error = 'Cover amount cannot be less than ' + $scope.min_cover[$scope.paid_type];
         } else {
             $scope.cover_value_error = ''
         }
