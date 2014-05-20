@@ -12,14 +12,16 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.paid_names = ['Paid Monthly', 'Paid Weekly'];
     $scope.max_amount = [8333, 1923];
     $scope.min_value  = [5, 0];
+    $scope.min_cover  = [100, 23];
     $scope.divides    = [4.33, 0.23];
 
     // default values
-    $scope.paid_type       = 0;
-    $scope.amount          = 0;
-    $scope.amount_monthly  = 0;
-    $scope.send_email      = false;
-    $scope.age_range_error = false;
+    $scope.paid_type         = 0;
+    $scope.amount            = 0;
+    $scope.amount_monthly    = 0;
+    $scope.send_email        = false;
+    $scope.age_range_error   = false;
+    $scope.cover_value_error = false;
 
     // default results
     $scope.personal_guaranteed        = 0;
@@ -40,41 +42,10 @@ app.controller('AppCtrl', function ($scope, $http) {
         $scope.widget_height = 'auto';
     });
 
-    // pdf action - TODO: fill in with data
-    $scope.getPdf = function () {
-        var doc = new jsPDF();
-        doc.text(20, 20, ($scope.personal_guaranteed).toString());
-        doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
-        doc.save('Test.pdf');
-    }
-
     // paid switcher
     $scope.changePaid = function () {
         $scope.paid_type = +(!$scope.paid_type);
         $scope.amount = Math.round($scope.amount * get_divide());
-    }
-
-    // open/close send email form
-    $scope.sendEmail = function () {
-        $scope.send_email = !$scope.send_email;
-    }
-
-    // send email action
-    $scope.triggerSendEmail = function () {
-        // TODO: validate email and send this to some
-        // php backend script and send email
-    }
-
-    // print - TODO: decide what we should do - print current layout or some other?
-    $scope.print = function (container_id) {
-        // var content = document.getElementById(container_id).innerHTML;
-        // var popup   = window.open('', '_blank', 'width=300,height=300');
-        // popup.document.open()
-        // popup.document.write('<html><body onload="window.print()">' + content + '</html>');
-        // popup.document.close();
-
-        // OR JUST
-        window.print();
     }
 
     $scope.toggleHelp = function (idx) {
@@ -91,6 +62,8 @@ app.controller('AppCtrl', function ($scope, $http) {
         } else {
             $scope.amount_monthly = round($scope.amount);
         }
+        // check the min cover value
+        fix_min_value();
     }
 
     function round (num) {
@@ -121,6 +94,20 @@ app.controller('AppCtrl', function ($scope, $http) {
     // minimum price value (weekly, monthly)
     function get_min_value () {
         return $scope.min_value[$scope.paid_type];
+    }
+
+    function fix_min_value () {
+        //fix value for calc
+        if ($scope.amount_monthly < $scope.min_cover[$scope.paid_type]) {
+            $scope.amount_monthly = $scope.min_cover[$scope.paid_type];
+        }
+
+        //validation
+        if ($scope.amount > 0 && $scope.amount < $scope.min_cover[$scope.paid_type]) {
+            $scope.cover_value_error = 'Cover amount cannot be lesser than ' + $scope.min_cover[$scope.paid_type];
+        } else {
+            $scope.cover_value_error = ''
+        }
     }
 
     // calc single price value

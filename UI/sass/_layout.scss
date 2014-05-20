@@ -12,7 +12,7 @@ a, textarea, input { outline: none; }
     background: $widgetBackground;
     width: 642px;
     border: solid 1px #dcdcdc;
-    padding: 28px 37px;
+    padding: 28px 18px;
     @include border-radius(5px);
     font-family: $fontFamily;
     color: $bodyColor;
@@ -163,8 +163,11 @@ a, textarea, input { outline: none; }
         small {
             font-size: 10px;
             color: #000;
+            h6 {
+              font-size: 12px;
+            }
             ul {
-                font-size: 11px;
+                font-size: 12px;
                 margin-left: 20px;
                 li {
                     list-style: disc;
