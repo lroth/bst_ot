@@ -13,7 +13,8 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.max_amount = [8333, 1923];
     $scope.min_value  = [5, 0];
     $scope.min_cover  = [100, 23];
-    $scope.divides    = [4.33, 0.23];
+    // $scope.divides    = [4.33, 0.23];
+    $scope.divides    = [52/12, 12/52];
 
     // default values
     $scope.paid_type         = 0;
@@ -117,7 +118,7 @@ app.controller('AppCtrl', function ($scope, $http) {
         if (value) {
             //if min
             if (value < min) {
-                $scope.result_min_errors[idx] = 'under the minimum £5 monthly premium';
+                $scope.result_min_errors[idx] = 'under the Flexible Protection Plan minimum £5 monthly premium';
 
                 return 'N/A';
             } else {
