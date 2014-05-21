@@ -22,7 +22,7 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.send_email        = false;
     $scope.age_range_error   = false;
     $scope.cover_value_error = false;
-    $scope.result_min_error  = false;
+    $scope.result_min_errors = [false, false, false, false];
 
     // default results
     $scope.personal_guaranteed        = 0;
@@ -117,11 +117,11 @@ app.controller('AppCtrl', function ($scope, $http) {
         if (value) {
             //if min
             if (value < min) {
-                $scope.result_min_error = 'under the minimum £5 monthly premium';
+                $scope.result_min_errors[idx] = 'under the minimum £5 monthly premium';
 
                 return 'N/A';
             } else {
-                $scope.result_min_error = false;
+                $scope.result_min_errors[idx] = false;
             }
             return round(Math.max(value, min || 0));
         }
