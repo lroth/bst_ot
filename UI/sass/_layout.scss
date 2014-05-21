@@ -73,6 +73,9 @@ a, textarea, input { outline: none; }
           }
         }
       }
+      .error {
+        text-align: right;
+      }
     }
     a {
       text-decoration: underline;

@@ -22,6 +22,7 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.send_email        = false;
     $scope.age_range_error   = false;
     $scope.cover_value_error = false;
+    $scope.result_min_error  = false;
 
     // default results
     $scope.personal_guaranteed        = 0;
@@ -114,16 +115,25 @@ app.controller('AppCtrl', function ($scope, $http) {
     function calc_value (idx, min) {
         var value = $scope.amount_monthly * get_multiplier(idx);
         if (value) {
+            //if min
+            if (value < min) {
+                $scope.result_min_error = 'under the minimum £5 monthly premium';
+
+                return 'N/A';
+            } else {
+                $scope.result_min_error = false;
+            }
             return round(Math.max(value, min || 0));
         }
         return 0;
     }
 
     function calc_info (idx, min) {
-        var info = $scope.amount_monthly + ' x ' + get_multiplier(idx) + ' = ' + calc_value(idx);
+        var info = $scope.amount_monthly + ' x ' + get_multiplier(idx) + ' = ' + calc_value(idx, min);
         if (min) {
             info = info + ' (minimum: ' + min + ')';
         }
+
         return info;
     }
 
@@ -131,12 +141,6 @@ app.controller('AppCtrl', function ($scope, $http) {
     function calc () {
         if ($scope.csv_data && $scope.amount > 0) {
             // new data from scope update
-            // console.log($scope.age_start, 'age_start');
-            // console.log($scope.age_end, 'age_end');
-            // console.log($scope.amount, 'amount');
-            // console.log($scope.paid_type, 'paid_type');
-            // console.log($scope.period, 'period');
-
             var min_value = get_min_value();
 
             // calculate
