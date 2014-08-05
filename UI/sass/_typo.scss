@@ -1,0 +1,85 @@
+// ---------------------------------------------------------------------------
+// Typo setup
+// ---------------------------------------------------------------------------
+
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
+
+$fontFamily: 'Lato', sans-serif;
+
+// ---------------------------------------------------------------------------
+// General
+// ---------------------------------------------------------------------------
+body {
+    font-family: $fontFamily;
+    color: $black;
+    line-height: 32.5px;
+    font-size: 18px;
+    font-weight: 300;
+    overflow-x: hidden;
+    max-width: $width;
+    margin: 0 auto;
+    padding: 10px;
+    @include gridle_state(tablet) {
+        padding: 20px;
+    }
+}
+
+textarea, input, button {
+  outline: none;
+}
+
+a {
+  -webkit-transition:all .1s ease-in-out;
+  -moz-transition:all .1s ease-in-out;
+  transition:all .1s ease-in-out;
+  outline: none;
+  text-decoration: none;
+  color: $black;
+  &:hover {
+    color: $green;
+  }
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 44px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+p {
+  line-height: 24px;
+  font-weight: 300;
+}
+
+li {
+  list-style: none;
+}
+
+.title-text {
+  ul {
+    padding-left: 50px;
+    li {
+      list-style-type: disc;
+    }
+  }
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  max-width: 100%;
+}

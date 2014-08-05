@@ -1,14 +1,31 @@
 // ---------------------------------------------------------------------------
-// Background color
+// Grid
 // ---------------------------------------------------------------------------
-$bodyBackground:   #ffffff;
-$widgetBackground: #ededed;
-$bodyColor:        #214657;
-$linkColor:        #bacb31;
-$tipColor:         #000000;
+@import "../../vendor/gridle/sass/gridle/gridle";
+
+$gridle-columns-count   : 12;
+$gridle-gutter-width    : 20px;
+$gridle-debug           : false;
 
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,400,300);
-$webfont: "Open Sans", Helvetica;
-// $fontFamily: $webfont, Arial, sans-serif;
-$fontFamily: Tahoma, sans-serif;
+// make the use of media queries really easy
+@include gridle_register_state ( 'small-mobile' , null , 400px );
+@include gridle_register_state ( 'mobile' , null , 640px );
+@include gridle_register_state ( 'tablet' , null , 980px );
+@include gridle_register_state ( 'netbook' , null , 1200px );
+
+// generate classes :
+@include gridle_generate_classes ( );
+
+// ---------------------------------------------------------------------------
+// Colors
+// ---------------------------------------------------------------------------
+$white:     #ffffff;
+$yellow:    #ffcc00;
+$green:     #bacb31;
+$blue:      #214657;
+$grey:      #cccccc;
+$dark:      #666666;
+$black:     #000000;
+
+$width: 1200px;
