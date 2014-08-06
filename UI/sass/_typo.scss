@@ -25,61 +25,80 @@ body {
 }
 
 textarea, input, button {
-  outline: none;
+    outline: none;
 }
 
 a {
-  -webkit-transition:all .1s ease-in-out;
-  -moz-transition:all .1s ease-in-out;
-  transition:all .1s ease-in-out;
-  outline: none;
-  text-decoration: none;
-  color: $black;
-  &:hover {
-    color: $green;
-  }
+    -webkit-transition:all .1s ease-in-out;
+    -moz-transition:all .1s ease-in-out;
+    transition:all .1s ease-in-out;
+    outline: none;
+    text-decoration: none;
+    color: $black;
+    &:hover {
+        color: $green;
+    }
 }
 
 h1 {
-  font-size: 56px;
-  font-weight: 600;
-  letter-spacing: 1px;
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    @include gridle_state(mobile) {
+      font-size: 32px !important;
+    }
 }
 
 h2 {
-  font-size: 44px;
-  margin-bottom: 20px;
-  font-weight: 700;
-  letter-spacing: 2px;
+    font-size: 44px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 44px;
+    @include gridle_state(tablet) {
+        font-size: 32px !important;
+    }
+    @include gridle_state(mobile) {
+        font-size: 18px !important;
+    }
 }
 
 h3 {
-  font-size: 22px;
-  font-weight: 500;
+    font-size: 22px;
+    font-weight: 500;
 }
 
 p {
-  line-height: 24px;
-  font-weight: 300;
+    line-height: 24px;
+    font-weight: 300;
+    @include gridle_state(mobile) {
+        font-size: 12px !important;
+    }
+}
+
+a {
+    @include gridle_state(mobile) {
+        font-size: 14px !important;
+    }
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 
 .title-text {
-  ul {
-    padding-left: 50px;
-    li {
-      list-style-type: disc;
+    ul {
+        padding-left: 50px;
+        li {
+            list-style-type: disc;
+        }
     }
-  }
 }
 
 strong {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 img {
-  max-width: 100%;
+    max-width: 100%;
 }

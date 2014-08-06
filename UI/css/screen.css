@@ -98,7 +98,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 250, ../../vendor/gridle/sass/gridle/_gridle.scss */
-.grid-0, .grid-small-mobile-0, .grid-mobile-0, .grid-tablet-0, .grid-netbook-0, .grid-1, .grid-small-mobile-1, .grid-mobile-1, .grid-tablet-1, .grid-netbook-1, .grid-2, .grid-small-mobile-2, .grid-mobile-2, .grid-tablet-2, .grid-netbook-2, .grid-3, .grid-small-mobile-3, .grid-mobile-3, .grid-tablet-3, .grid-netbook-3, .grid-4, .grid-small-mobile-4, .grid-mobile-4, .grid-tablet-4, .grid-netbook-4, .grid-5, .grid-small-mobile-5, .grid-mobile-5, .grid-tablet-5, .grid-netbook-5, .grid-6, .grid-small-mobile-6, .grid-mobile-6, .grid-tablet-6, .grid-netbook-6, .grid-7, .grid-small-mobile-7, .grid-mobile-7, .grid-tablet-7, .grid-netbook-7, .grid-8, .grid-small-mobile-8, .grid-mobile-8, .grid-tablet-8, .grid-netbook-8, .grid-9, .grid-small-mobile-9, .grid-mobile-9, .grid-tablet-9, .grid-netbook-9, .grid-10, .grid-small-mobile-10, .grid-mobile-10, .grid-tablet-10, .grid-netbook-10, .grid-11, .grid-small-mobile-11, .grid-mobile-11, .grid-tablet-11, .grid-netbook-11, .grid-12, .grid-small-mobile-12, .grid-mobile-12, .grid-tablet-12, .grid-netbook-12, header, header .title, header .info, .main, .main .boxes .box {
+.grid-0, .grid-small-mobile-0, .grid-mobile-0, .grid-tablet-0, .grid-netbook-0, .grid-1, .grid-small-mobile-1, .grid-mobile-1, .grid-tablet-1, .grid-netbook-1, .grid-2, .grid-small-mobile-2, .grid-mobile-2, .grid-tablet-2, .grid-netbook-2, .grid-3, .grid-small-mobile-3, .grid-mobile-3, .grid-tablet-3, .grid-netbook-3, .grid-4, .grid-small-mobile-4, .grid-mobile-4, .grid-tablet-4, .grid-netbook-4, .grid-5, .grid-small-mobile-5, .grid-mobile-5, .grid-tablet-5, .grid-netbook-5, .grid-6, .grid-small-mobile-6, .grid-mobile-6, .grid-tablet-6, .grid-netbook-6, .grid-7, .grid-small-mobile-7, .grid-mobile-7, .grid-tablet-7, .grid-netbook-7, .grid-8, .grid-small-mobile-8, .grid-mobile-8, .grid-tablet-8, .grid-netbook-8, .grid-9, .grid-small-mobile-9, .grid-mobile-9, .grid-tablet-9, .grid-netbook-9, .grid-10, .grid-small-mobile-10, .grid-mobile-10, .grid-tablet-10, .grid-netbook-10, .grid-11, .grid-small-mobile-11, .grid-mobile-11, .grid-tablet-11, .grid-netbook-11, .grid-12, .grid-small-mobile-12, .grid-mobile-12, .grid-tablet-12, .grid-netbook-12, header, header .title, header .info, .main, .main .boxes .box, footer {
   display: inline-block;
   min-height: 1px;
   -webkit-box-sizing: border-box;
@@ -2496,47 +2496,79 @@ h1 {
   font-weight: 600;
   letter-spacing: 1px;
 }
+@media screen and (max-width: 640px) {
+  /* line 43, ../sass/_typo.scss */
+  h1 {
+    font-size: 32px !important;
+  }
+}
 
-/* line 49, ../sass/_typo.scss */
+/* line 52, ../sass/_typo.scss */
 h2 {
   font-size: 44px;
   margin-bottom: 20px;
   font-weight: 700;
   letter-spacing: 2px;
+  line-height: 44px;
+}
+@media screen and (max-width: 980px) {
+  /* line 52, ../sass/_typo.scss */
+  h2 {
+    font-size: 32px !important;
+  }
+}
+@media screen and (max-width: 640px) {
+  /* line 52, ../sass/_typo.scss */
+  h2 {
+    font-size: 18px !important;
+  }
 }
 
-/* line 56, ../sass/_typo.scss */
+/* line 66, ../sass/_typo.scss */
 h3 {
   font-size: 22px;
   font-weight: 500;
 }
 
-/* line 61, ../sass/_typo.scss */
+/* line 71, ../sass/_typo.scss */
 p {
   line-height: 24px;
   font-weight: 300;
 }
+@media screen and (max-width: 640px) {
+  /* line 71, ../sass/_typo.scss */
+  p {
+    font-size: 12px !important;
+  }
+}
 
-/* line 66, ../sass/_typo.scss */
+@media screen and (max-width: 640px) {
+  /* line 79, ../sass/_typo.scss */
+  a {
+    font-size: 14px !important;
+  }
+}
+
+/* line 85, ../sass/_typo.scss */
 li {
   list-style: none;
 }
 
-/* line 71, ../sass/_typo.scss */
+/* line 90, ../sass/_typo.scss */
 .title-text ul {
   padding-left: 50px;
 }
-/* line 73, ../sass/_typo.scss */
+/* line 92, ../sass/_typo.scss */
 .title-text ul li {
   list-style-type: disc;
 }
 
-/* line 79, ../sass/_typo.scss */
+/* line 98, ../sass/_typo.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 83, ../sass/_typo.scss */
+/* line 102, ../sass/_typo.scss */
 img {
   max-width: 100%;
 }
@@ -2563,17 +2595,41 @@ header .title {
   font-size: 70px;
   font-weight: 100;
 }
-/* line 11, ../sass/_layout.scss */
+@media screen and (max-width: 980px) {
+  /* line 5, ../sass/_layout.scss */
+  header .title {
+    float: left;
+    direction: ltr;
+    padding: 0 10px;
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+    margin-top: 10px;
+  }
+}
+/* line 15, ../sass/_layout.scss */
 header .title h1 {
   display: inline-block;
 }
-/* line 14, ../sass/_layout.scss */
+@media screen and (max-width: 980px) {
+  /* line 15, ../sass/_layout.scss */
+  header .title h1 {
+    display: block;
+    margin-bottom: 30px;
+  }
+}
+/* line 22, ../sass/_layout.scss */
 header .title span {
   font-size: 32px;
   font-weight: 300;
   vertical-align: middle;
 }
-/* line 20, ../sass/_layout.scss */
+@media screen and (max-width: 640px) {
+  /* line 22, ../sass/_layout.scss */
+  header .title span {
+    font-size: 18px;
+  }
+}
+/* line 31, ../sass/_layout.scss */
 header .info {
   float: left;
   direction: ltr;
@@ -2582,48 +2638,59 @@ header .info {
   *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   text-align: right;
 }
-/* line 23, ../sass/_layout.scss */
+@media screen and (max-width: 980px) {
+  /* line 31, ../sass/_layout.scss */
+  header .info {
+    float: left;
+    direction: ltr;
+    padding: 0 10px;
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+    margin-top: 50px;
+  }
+}
+/* line 38, ../sass/_layout.scss */
 header .info ul {
   float: right;
 }
-/* line 25, ../sass/_layout.scss */
+/* line 40, ../sass/_layout.scss */
 header .info ul li {
   float: left;
   padding-right: 15px;
 }
-/* line 28, ../sass/_layout.scss */
+/* line 43, ../sass/_layout.scss */
 header .info ul li:last-child {
   padding-right: 0;
 }
-/* line 31, ../sass/_layout.scss */
+/* line 46, ../sass/_layout.scss */
 header .info ul li.yellowMark {
   background: url("../images/yellowTriangle.png") right no-repeat;
   margin-right: 15px;
 }
-/* line 35, ../sass/_layout.scss */
+/* line 50, ../sass/_layout.scss */
 header .info ul li::before {
   content: "|";
   padding-right: 10px;
 }
-/* line 39, ../sass/_layout.scss */
+/* line 54, ../sass/_layout.scss */
 header .info ul li a {
   font-size: 14px;
 }
-/* line 44, ../sass/_layout.scss */
+/* line 59, ../sass/_layout.scss */
 header .info h2 {
   font-size: 32px;
   margin-bottom: 10px;
 }
-/* line 48, ../sass/_layout.scss */
+/* line 63, ../sass/_layout.scss */
 header .info p, header .info a {
   font-weight: 500;
 }
-/* line 51, ../sass/_layout.scss */
+/* line 66, ../sass/_layout.scss */
 header .info > a {
   text-decoration: underline;
 }
 
-/* line 57, ../sass/_layout.scss */
+/* line 72, ../sass/_layout.scss */
 .main {
   float: left;
   direction: ltr;
@@ -2632,35 +2699,39 @@ header .info > a {
   *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   padding-top: 60px;
 }
-/* line 60, ../sass/_layout.scss */
+/* line 75, ../sass/_layout.scss */
 .main .container {
   margin-bottom: 40px;
   padding-bottom: 40px;
   border-bottom: 1px solid #cccccc;
 }
-/* line 64, ../sass/_layout.scss */
+/* line 79, ../sass/_layout.scss */
 .main .container h2 {
   color: #ffcc00;
   margin-bottom: 40px;
 }
-/* line 69, ../sass/_layout.scss */
+/* line 84, ../sass/_layout.scss */
 .main .boxes {
   display: block !important;
   float: none !important;
   margin-left: auto !important;
   margin-right: auto !important;
   clear: both !important;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #cccccc;
 }
-/* line 71, ../sass/_layout.scss */
+/* line 89, ../sass/_layout.scss */
 .main .boxes .box {
   float: left;
   direction: ltr;
   padding: 0 10px;
   width: 33.33333%;
   *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  padding-bottom: 50px !important;
 }
 @media screen and (max-width: 980px) {
-  /* line 71, ../sass/_layout.scss */
+  /* line 89, ../sass/_layout.scss */
   .main .boxes .box {
     float: left;
     direction: ltr;
@@ -2670,7 +2741,7 @@ header .info > a {
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 71, ../sass/_layout.scss */
+  /* line 89, ../sass/_layout.scss */
   .main .boxes .box {
     float: left;
     direction: ltr;
@@ -2679,9 +2750,56 @@ header .info > a {
     *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   }
 }
-/* line 79, ../sass/_layout.scss */
+/* line 98, ../sass/_layout.scss */
 .main .boxes .box p {
   font-size: 18px;
   font-weight: 700;
   color: #666666;
+  line-height: 1px;
+  float: left;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+/* line 107, ../sass/_layout.scss */
+.main .boxes .box span {
+  margin-top: 10px;
+  float: right;
+  height: 20px;
+  width: 20px;
+}
+/* line 112, ../sass/_layout.scss */
+.main .boxes .box span.danger {
+  background: url("../images/danger.png") no-repeat;
+}
+/* line 115, ../sass/_layout.scss */
+.main .boxes .box span.warning {
+  background: url("../images/warning.png") no-repeat;
+}
+/* line 118, ../sass/_layout.scss */
+.main .boxes .box span.success {
+  background: url("../images/success.png") no-repeat;
+}
+/* line 121, ../sass/_layout.scss */
+.main .boxes .box span.start {
+  background: url("../images/start.png") no-repeat;
+}
+/* line 124, ../sass/_layout.scss */
+.main .boxes .box span.success, .main .boxes .box span.start, .main .boxes .box span.warning, .main .boxes .box span.danger {
+  background-size: cover;
+}
+
+/* line 132, ../sass/_layout.scss */
+footer {
+  float: left;
+  direction: ltr;
+  padding: 0 10px;
+  width: 100%;
+  *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  margin-bottom: 20px;
+}
+/* line 135, ../sass/_layout.scss */
+footer p {
+  font-size: 16px;
+  color: #cccccc;
+  float: right;
 }
