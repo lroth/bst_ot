@@ -67,15 +67,57 @@ header {
             text-decoration: underline;
         }
     }
+    .panel {
+        @include gridle(12);
+        background-color: $dark;
+        border-radius: 10px;
+        margin-top: 40px;
+        li {
+            float: left;
+            a {
+                height: 30px;
+                padding: 12px 20px 8px 30px;
+                display: block;
+                color: $yellow;
+                font-weight: 700;
+                letter-spacing: 1px;
+                &:hover {
+                    color: $dark;
+                    background-color: $yellow;
+                }
+            }
+            img {
+                width: 70%;
+            }
+            &.print {
+                float: right;
+                a {
+                    padding-right: 30px;
+                    &:hover {
+                        color: $yellow;
+                        background: url('../images/document.png') right no-repeat;
+                        background-size: 21px 24px;
+                    }
+                }
+            }
+        }
+    }
+    .text {
+        @include gridle(12);
+        border-radius: 10px;
+        margin-top: 40px;
+        background-color: rgba(0,0,0,0.05);
+        padding: 14px 10px;
+        p {
+            font-weight: 500;
+        }
+    }
 }
 
 .main {
     @include gridle(12);
     padding-top: 60px;
     .container {
-        margin-bottom: 40px;
-        padding-bottom: 40px;
-        border-bottom: 1px solid $grey;
         h2 {
             color: $yellow;
             margin-bottom: 40px;
@@ -83,9 +125,6 @@ header {
     }
     .boxes {
         @include gridle_centered();
-        margin-bottom: 40px;
-        padding-bottom: 40px;
-        border-bottom: 1px solid $grey;
         .box {
             @include gridle(4);
             @include gridle_state(tablet) {
@@ -127,6 +166,15 @@ header {
             }
         }
     }
+    .left-column {
+        @include gridle(5);
+    }
+    .right-column {
+        @include gridle(7);
+        h3 {
+            text-transform: uppercase;
+        }
+    }
 }
 
 footer {
@@ -136,5 +184,11 @@ footer {
         font-size: 16px;
         color: $grey;
         float: right;
+    }
+    .banner {
+        @include gridle(12);
+        height: 200px;
+        background: url('../images/banner.png') no-repeat;
+        background-size: contain;
     }
 }

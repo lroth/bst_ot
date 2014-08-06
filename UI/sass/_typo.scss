@@ -35,8 +35,8 @@ a {
     outline: none;
     text-decoration: none;
     color: $black;
-    &:hover {
-        color: $green;
+    @include gridle_state(mobile) {
+        font-size: 14px !important;
     }
 }
 
@@ -61,11 +61,15 @@ h2 {
     @include gridle_state(mobile) {
         font-size: 18px !important;
     }
+
 }
 
 h3 {
     font-size: 22px;
     font-weight: 500;
+    .yellow {
+        color: $yellow;
+    }
 }
 
 p {
@@ -73,12 +77,6 @@ p {
     font-weight: 300;
     @include gridle_state(mobile) {
         font-size: 12px !important;
-    }
-}
-
-a {
-    @include gridle_state(mobile) {
-        font-size: 14px !important;
     }
 }
 
@@ -101,4 +99,10 @@ strong {
 
 img {
     max-width: 100%;
+}
+
+.bordered {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid $grey;
 }

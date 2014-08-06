@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
             <script src="../UI/js/ie.js"></script>
         <![endif]-->
     </head>
-    <body>
+    <body ng-app="app">
         <header>
             <div class="title">
                 <h1>Wesleyan </h1>|<span> we are all about you</span>
@@ -38,65 +38,131 @@
                 <p>Saturday 9.00am - 2.00pm</p>
                 <a href="#">Request a call back</a>
             </div>
+            <ul class="panel">
+                <li><a href="/"><img src="../UI/images/home.png"></a></li>
+                <li><a href="#">Retirement Planning Tool</a></li>
+                <li class="print"><a href="#">Print / Save</a></li>
+            </ul>
+            <div class="text">
+                <p>Please complete the information on the left and your results will instantly appear on the right. You can easily amend any details and the results will automatically update to show their impact on your retirement income.</p>
+            </div>
         </header>
         <section class="main">
             <div class="container">
-                <h2>Welcome to YourWesleyan.co.uk</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat.</p>
-            </div>
-            <div class="boxes">
-                <div class="box">
-                    <img src="../UI/images/image1.png">
-                    <p>Retirement & Pension</p>
-                    <span class="danger"></span>
+                <div class="left-column">
+                    <div class="bordered">
+                        <fieldset>
+                            <label>Name</label>
+                            <input type="text" name="name">
+                        </fieldset>
+                        <fieldset>
+                            <label>Age</label>
+                            <input type="text" name="age">
+                        </fieldset>
+                        <fieldset>
+                            <label>Current annual salary</label>
+                            <input type="text" name="salary">
+                        </fieldset>
+                        <fieldset>
+                            <label>Current annual salary</label>
+                            <input type="text" name="salary">
+                        </fieldset>
+                        <fieldset>
+                            <label>How much do have you saved in private pension plans / ISA for retirement</label>
+                            <input type="text" name="saved_money">
+                        </fieldset>
+                        <fieldset>
+                            <label>Average monthly payments into those private pension plans and ISAs until you retire?</label>
+                            <input type="text" name="monthly_payments">
+                        </fieldset>
+                    </div>
+                    <div class="bordered">
+                        <div class="error" ng-show="retirement_age_error">{{ retirement_age_error }}</div>
+                        <fieldset>
+                            <label>Planned retirement age</label>
+                            <div
+                                class="slider"
+                                slider
+                                ng-model="retirement_age"
+                                floor="50"
+                                ceiling="80"
+                                step="1"
+                                precision="0">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="bordered">
+                        <div class="error" ng-show="increase_salary_error">{{ increase_salary }}</div>
+                        <fieldset>
+                            <label>How much do estimate your salary will increase by every 5 years before you retire (%) </label>
+                            <div
+                                class="slider"
+                                slider
+                                ng-model="increase_salary"
+                                floor="0%"
+                                ceiling="150%"
+                                step="1"
+                                precision="0">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="bordered">
+                        <div class="error" ng-show="income_error">{{ income }}</div>
+                        <fieldset>
+                            <label>Desired annual retirement income &pound;</label>
+                            <div
+                                class="slider"
+                                slider
+                                ng-model="income"
+                                floor="10,000"
+                                ceiling="100,000"
+                                step="1"
+                                precision="0">
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="bordered">
+                        <button class="yellow-button">
+                            Assumptions used for calculations >>
+                        </button>
+                    </div>
                 </div>
-                <div class="box">
-                    <img src="../UI/images/image2.png">
-                    <p>Emergency</p>
-                    <span class="success"></span>
+                <div class="right-column">
+                    <h3><span class="yellow">Joe Bloggs</span> Retirement Income Results</h3>
+                    <div class="graph bordered"></div>
+                    <div class="results bordered" id="results">
+                        <p class="red bordered">
+                            <span>Retirement shortfall</span> <em ng-hide="result_min_errors[0]">&pound;</em>{{ personal_guaranteed }}
+                        </p>
+                        <div class="error" ng-show="result_min_errors[0]">{{ result_min_errors[0] }}</div>
+                        <p class="yellow">
+                            <span>Private pension and isa plans (annual gross)</span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ personal_guaranteed }}
+                        </p>
+                        <div class="error" ng-show="result_min_errors[1]">{{ result_min_errors[1] }}</div>
+                        <p class="orange">
+                            <span>Occupational pension scheme (annual gross)</span> <em ng-hide="result_min_errors[2]">&pound;</em>{{ personal_guaranteed }}
+                        </p>
+                        <div class="error" ng-show="result_min_errors[2]">{{ result_min_errors[2] }}</div>
+                        <p class="mud-green">
+                            <span>State pension (annual gross)</span> <em ng-hide="result_min_errors[3]">&pound;</em>{{ personal_guaranteed }}
+                        </p>
+                        <div class="error" ng-show="result_min_errors[3]">{{ result_min_errors[3] }}</div>
+                    </div>
+                    <div class="summary bordered">
+                        <p class="white">
+                            <span>25% tax free lump sum at retirement</span> <em ng-hide="result_min_errors[4]">&pound;</em>{{ personal_guaranteed }}
+                        </p>
+                        <div class="error" ng-show="result_min_errors[4]">{{ result_min_errors[4] }}</div>
+                        <p class="white">
+                            <span>Your future career earnings are (in today's terms)</span> <em ng-hide="result_min_errors[5]">&pound;</em>{{ personal_guaranteed }}
+                        </p>
+                        <div class="error" ng-show="result_min_errors[5]">{{ result_min_errors[5] }}</div>
+                    </div>
                 </div>
-                <div class="box">
-                    <img src="../UI/images/image3.png">
-                    <p>Protection</p>
-                    <span class="success"></span>
-                </div>
-                <div class="box">
-                    <img src="../UI/images/image4.png">
-                    <p>Income Protection</p>
-                    <span class="danger"></span>
-                </div>
-                <div class="box">
-                    <img src="../UI/images/image5.png">
-                    <p>Savings</p>
-                    <span class="warning"></span>
-                </div>
-                <div class="box">
-                    <img src="../UI/images/image6.png">
-                    <p>Investments</p>
-                    <span class="success"></span>
-                </div>
-                <div class="box">
-                    <img src="../UI/images/image7.png">
-                    <p>Mortgages</p>
-                    <span class="success"></span>
-                </div>
-                <div class="box">
-                    <img src="../UI/images/image8.png">
-                    <p>IHT</p>
-                    <span class="start"></span>
-                </div>
-                <div class="box">
-                    <img src="../UI/images/image9.png">
-                    <p>Commercial</p>
-                    <span class="start"></span>
-                </div>
-                <div class="clear"></div>
             </div>
         </section>
         <footer>
+            <div class="banner bordered"></div>
             <p>&copy; 2014 Wesleyan Assurance Society</p>
         </footer>
         <script src="../UI/js/app.js"></script>
