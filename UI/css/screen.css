@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900);
 /* line 17, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-0.12.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -2452,9 +2451,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   content: '{ "states" : {"small-mobile":"screen and (max-width: 400px)","mobile":"screen and (max-width: 640px)","tablet":"screen and (max-width: 980px)","netbook":"screen and (max-width: 1200px)"}, "columnsCount" : 12, "gutterWidth" : "20px", "nameMultiplicator" : 1, "direction" : "ltr", "ie7Support" : true, "debug" : false, "debugShowClassNames" : true, "htmlStatesClasses" : false, "generateHelpersClasses" : true, "generatePushClasses" : true, "generatePullClasses" : true, "generatePrefixClasses" : true, "generateSuffixClasses" : true, "classPrefix" : "", "generateUsefulStatesClasses" : []}';
 }
 
-/* line 12, ../sass/_typo.scss */
+/* line 10, ../sass/_typo.scss */
 body {
-  font-family: "Lato", sans-serif;
+  font-family: Arial, sans-serif;
   color: black;
   line-height: 32.5px;
   font-size: 18px;
@@ -2465,18 +2464,18 @@ body {
   padding: 10px;
 }
 @media screen and (max-width: 980px) {
-  /* line 12, ../sass/_typo.scss */
+  /* line 10, ../sass/_typo.scss */
   body {
     padding: 20px;
   }
 }
 
-/* line 27, ../sass/_typo.scss */
+/* line 25, ../sass/_typo.scss */
 textarea, input, button {
   outline: none;
 }
 
-/* line 31, ../sass/_typo.scss */
+/* line 29, ../sass/_typo.scss */
 a {
   -webkit-transition: all .1s ease-in-out;
   -moz-transition: all .1s ease-in-out;
@@ -2486,26 +2485,26 @@ a {
   color: black;
 }
 @media screen and (max-width: 640px) {
-  /* line 31, ../sass/_typo.scss */
+  /* line 29, ../sass/_typo.scss */
   a {
     font-size: 14px !important;
   }
 }
 
-/* line 43, ../sass/_typo.scss */
+/* line 41, ../sass/_typo.scss */
 h1 {
   font-size: 56px;
   font-weight: 600;
   letter-spacing: 1px;
 }
 @media screen and (max-width: 640px) {
-  /* line 43, ../sass/_typo.scss */
+  /* line 41, ../sass/_typo.scss */
   h1 {
     font-size: 32px !important;
   }
 }
 
-/* line 52, ../sass/_typo.scss */
+/* line 50, ../sass/_typo.scss */
 h2 {
   font-size: 44px;
   margin-bottom: 20px;
@@ -2514,65 +2513,65 @@ h2 {
   line-height: 44px;
 }
 @media screen and (max-width: 980px) {
-  /* line 52, ../sass/_typo.scss */
+  /* line 50, ../sass/_typo.scss */
   h2 {
     font-size: 32px !important;
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 52, ../sass/_typo.scss */
+  /* line 50, ../sass/_typo.scss */
   h2 {
     font-size: 18px !important;
   }
 }
 
-/* line 67, ../sass/_typo.scss */
+/* line 65, ../sass/_typo.scss */
 h3 {
   font-size: 22px;
   font-weight: 500;
 }
-/* line 70, ../sass/_typo.scss */
+/* line 68, ../sass/_typo.scss */
 h3 .yellow {
   color: #ffcc00;
 }
 
-/* line 75, ../sass/_typo.scss */
+/* line 73, ../sass/_typo.scss */
 p {
   line-height: 24px;
   font-weight: 300;
 }
 @media screen and (max-width: 640px) {
-  /* line 75, ../sass/_typo.scss */
+  /* line 73, ../sass/_typo.scss */
   p {
     font-size: 12px !important;
   }
 }
 
-/* line 83, ../sass/_typo.scss */
+/* line 81, ../sass/_typo.scss */
 li {
   list-style: none;
 }
 
-/* line 88, ../sass/_typo.scss */
+/* line 86, ../sass/_typo.scss */
 .title-text ul {
   padding-left: 50px;
 }
-/* line 90, ../sass/_typo.scss */
+/* line 88, ../sass/_typo.scss */
 .title-text ul li {
   list-style-type: disc;
 }
 
-/* line 96, ../sass/_typo.scss */
+/* line 94, ../sass/_typo.scss */
 strong {
   font-weight: bold;
 }
 
-/* line 100, ../sass/_typo.scss */
+/* line 98, ../sass/_typo.scss */
 img {
   max-width: 100%;
 }
 
-/* line 104, ../sass/_typo.scss */
+/* line 102, ../sass/_typo.scss */
 .bordered {
   margin-bottom: 40px;
   padding-bottom: 40px;
@@ -2854,23 +2853,33 @@ header .text p {
   padding: 0 10px;
   width: 33.33333%;
   *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  border-right: 2px solid #cccccc;
+  padding-right: 25px;
 }
-/* line 172, ../sass/_layout.scss */
+/* line 174, ../sass/_layout.scss */
 .main .right-column {
   float: left;
   direction: ltr;
   padding: 0 10px;
   width: 66.66667%;
   *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  padding-left: 28px;
 }
-/* line 174, ../sass/_layout.scss */
+/* line 177, ../sass/_layout.scss */
 .main .right-column h3 {
   text-transform: uppercase;
 }
-/* line 178, ../sass/_layout.scss */
+/* line 181, ../sass/_layout.scss */
+.main .right-column .results .colored {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+}
+/* line 187, ../sass/_layout.scss */
 .main .right-column .results p {
   display: block;
-  border: 2px solid black;
+  border: none;
   border-radius: 10px;
   padding: 12px 20px !important;
   margin: 20px 0;
@@ -2878,34 +2887,35 @@ header .text p {
   font-weight: 700;
   text-align: right;
 }
-/* line 187, ../sass/_layout.scss */
+/* line 196, ../sass/_layout.scss */
 .main .right-column .results p span {
   float: left;
   text-align: left;
   font-weight: 300;
 }
-/* line 192, ../sass/_layout.scss */
+/* line 201, ../sass/_layout.scss */
 .main .right-column .results p.red {
   background-color: #ff0033;
 }
-/* line 195, ../sass/_layout.scss */
+/* line 204, ../sass/_layout.scss */
 .main .right-column .results p.yellow {
   background-color: #ffcc00;
 }
-/* line 198, ../sass/_layout.scss */
+/* line 207, ../sass/_layout.scss */
 .main .right-column .results p.orange {
   background-color: #ff6633;
 }
-/* line 201, ../sass/_layout.scss */
+/* line 210, ../sass/_layout.scss */
 .main .right-column .results p.mud-green {
   background-color: #669999;
 }
-/* line 204, ../sass/_layout.scss */
+/* line 213, ../sass/_layout.scss */
 .main .right-column .results p.white {
+  border: 1px solid black;
   color: black;
 }
 @media screen and (max-width: 980px) {
-  /* line 210, ../sass/_layout.scss */
+  /* line 220, ../sass/_layout.scss */
   .main .left-column, .main .right-column {
     float: left;
     direction: ltr;
@@ -2915,7 +2925,7 @@ header .text p {
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 210, ../sass/_layout.scss */
+  /* line 220, ../sass/_layout.scss */
   .main .left-column, .main .right-column {
     float: left;
     direction: ltr;
@@ -2924,16 +2934,16 @@ header .text p {
     *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   }
 }
-/* line 218, ../sass/_layout.scss */
+/* line 228, ../sass/_layout.scss */
 .main fieldset {
   width: 80%;
   margin-bottom: 10px;
 }
-/* line 221, ../sass/_layout.scss */
+/* line 231, ../sass/_layout.scss */
 .main fieldset label {
   font-weight: 300;
 }
-/* line 224, ../sass/_layout.scss */
+/* line 234, ../sass/_layout.scss */
 .main fieldset input {
   border-radius: 10px;
   width: 100%;
@@ -2941,7 +2951,7 @@ header .text p {
   border: 1px solid #cccccc;
   font-size: 18px;
 }
-/* line 232, ../sass/_layout.scss */
+/* line 242, ../sass/_layout.scss */
 .main .yellow-button {
   background-color: #ffcc00;
   color: #666666;
@@ -2953,19 +2963,19 @@ header .text p {
   padding: 20px;
 }
 @media screen and (max-width: 980px) {
-  /* line 232, ../sass/_layout.scss */
+  /* line 242, ../sass/_layout.scss */
   .main .yellow-button {
     font-size: 22px;
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 232, ../sass/_layout.scss */
+  /* line 242, ../sass/_layout.scss */
   .main .yellow-button {
     font-size: 16px;
   }
 }
 
-/* line 250, ../sass/_layout.scss */
+/* line 260, ../sass/_layout.scss */
 footer {
   float: left;
   direction: ltr;
@@ -2974,13 +2984,13 @@ footer {
   *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   margin-bottom: 20px;
 }
-/* line 253, ../sass/_layout.scss */
+/* line 263, ../sass/_layout.scss */
 footer p {
   font-size: 16px;
   color: #cccccc;
   float: right;
 }
-/* line 258, ../sass/_layout.scss */
+/* line 268, ../sass/_layout.scss */
 footer .banner {
   float: left;
   direction: ltr;
@@ -2992,7 +3002,7 @@ footer .banner {
   background-size: contain;
 }
 
-/* line 267, ../sass/_layout.scss */
+/* line 277, ../sass/_layout.scss */
 .slider {
   float: left;
   direction: ltr;
@@ -3002,4 +3012,61 @@ footer .banner {
   display: inline-block;
   position: relative;
   height: 35px;
+  margin-top: 45px;
+}
+/* line 284, ../sass/_layout.scss */
+.slider span.full, .slider span.steps {
+  height: 4px;
+  z-index: 0;
+  top: 5px;
+  left: 0;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 296, ../sass/_layout.scss */
+.slider span.full {
+  background: #cccccc;
+}
+/* line 299, ../sass/_layout.scss */
+.slider span.steps {
+  background: #ffcc00;
+}
+/* line 302, ../sass/_layout.scss */
+.slider span.pointer {
+  cursor: pointer;
+  width: 18px;
+  height: 16px;
+  background: url("../images/marker.png") no-repeat;
+  background-size: contain;
+}
+/* line 309, ../sass/_layout.scss */
+.slider span.bubble {
+  top: -52px;
+  background: #565656;
+  color: white;
+  padding: 0 6px;
+  border-radius: 6px;
+  margin: 10px 0;
+  min-width: 16px;
+  text-align: center;
+}
+/* line 318, ../sass/_layout.scss */
+.slider span.bubble:after {
+  content: "";
+  background: url("../images/triangleBottom.png") top center no-repeat;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  right: 0%;
+  height: 6px;
+  text-align: center;
+  overflow: visible;
+}
+/* line 329, ../sass/_layout.scss */
+.slider span.bubble.floor, .slider span.bubble.ceiling {
+  opacity: 0 !important;
 }
