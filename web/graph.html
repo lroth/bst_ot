@@ -130,33 +130,36 @@
                 <div class="right-column">
                     <h3><span class="yellow">Joe Bloggs</span> Retirement Income Results</h3>
                     <div class="graph bordered"></div>
-                    <div class="results bordered" id="results">
-                        <p class="red bordered">
-                            <span>Retirement shortfall</span> <em ng-hide="result_min_errors[0]">&pound;</em>{{ personal_guaranteed }}
-                        </p>
-                        <div class="error" ng-show="result_min_errors[0]">{{ result_min_errors[0] }}</div>
-                        <p class="yellow">
-                            <span>Private pension and isa plans (annual gross)</span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ personal_guaranteed }}
-                        </p>
-                        <div class="error" ng-show="result_min_errors[1]">{{ result_min_errors[1] }}</div>
-                        <p class="orange">
-                            <span>Occupational pension scheme (annual gross)</span> <em ng-hide="result_min_errors[2]">&pound;</em>{{ personal_guaranteed }}
-                        </p>
-                        <div class="error" ng-show="result_min_errors[2]">{{ result_min_errors[2] }}</div>
-                        <p class="mud-green">
-                            <span>State pension (annual gross)</span> <em ng-hide="result_min_errors[3]">&pound;</em>{{ personal_guaranteed }}
-                        </p>
-                        <div class="error" ng-show="result_min_errors[3]">{{ result_min_errors[3] }}</div>
-                    </div>
-                    <div class="summary bordered">
-                        <p class="white">
-                            <span>25% tax free lump sum at retirement</span> <em ng-hide="result_min_errors[4]">&pound;</em>{{ personal_guaranteed }}
-                        </p>
-                        <div class="error" ng-show="result_min_errors[4]">{{ result_min_errors[4] }}</div>
-                        <p class="white">
-                            <span>Your future career earnings are (in today's terms)</span> <em ng-hide="result_min_errors[5]">&pound;</em>{{ personal_guaranteed }}
-                        </p>
-                        <div class="error" ng-show="result_min_errors[5]">{{ result_min_errors[5] }}</div>
+                    <div class="results" id="results">
+                        <div class="colored bordered">
+                            <p class="red">
+                                <span>Retirement shortfall</span> <em ng-hide="result_min_errors[0]">&pound;</em>{{ personal_guaranteed }}
+                            </p>
+                            <div class="error" ng-show="result_min_errors[0]">{{ result_min_errors[0] }}</div>
+                            <div class="bordered" style="padding-bottom: 20px;"></div>
+                            <p class="yellow">
+                                <span>Private pension and isa plans (annual gross)</span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ personal_guaranteed }}
+                            </p>
+                            <div class="error" ng-show="result_min_errors[1]">{{ result_min_errors[1] }}</div>
+                            <p class="orange">
+                                <span>Occupational pension scheme (annual gross)</span> <em ng-hide="result_min_errors[2]">&pound;</em>{{ personal_guaranteed }}
+                            </p>
+                            <div class="error" ng-show="result_min_errors[2]">{{ result_min_errors[2] }}</div>
+                            <p class="mud-green">
+                                <span>State pension (annual gross)</span> <em ng-hide="result_min_errors[3]">&pound;</em>{{ personal_guaranteed }}
+                            </p>
+                            <div class="error" ng-show="result_min_errors[3]">{{ result_min_errors[3] }}</div>
+                        </div>
+                        <div class="bordered">
+                            <p class="white">
+                                <span>25% tax free lump sum at retirement</span> <em ng-hide="result_min_errors[4]">&pound;</em>{{ personal_guaranteed }}
+                            </p>
+                            <div class="error" ng-show="result_min_errors[4]">{{ result_min_errors[4] }}</div>
+                            <p class="white">
+                                <span>Your future career earnings are (in today's terms)</span> <em ng-hide="result_min_errors[5]">&pound;</em>{{ personal_guaranteed }}
+                            </p>
+                            <div class="error" ng-show="result_min_errors[5]">{{ result_min_errors[5] }}</div>
+                        </div>
                     </div>
                 </div>
             </div>

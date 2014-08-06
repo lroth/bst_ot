@@ -98,7 +98,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* line 250, ../../vendor/gridle/sass/gridle/_gridle.scss */
-.grid-0, .grid-small-mobile-0, .grid-mobile-0, .grid-tablet-0, .grid-netbook-0, .grid-1, .grid-small-mobile-1, .grid-mobile-1, .grid-tablet-1, .grid-netbook-1, .grid-2, .grid-small-mobile-2, .grid-mobile-2, .grid-tablet-2, .grid-netbook-2, .grid-3, .grid-small-mobile-3, .grid-mobile-3, .grid-tablet-3, .grid-netbook-3, .grid-4, .grid-small-mobile-4, .grid-mobile-4, .grid-tablet-4, .grid-netbook-4, .grid-5, .grid-small-mobile-5, .grid-mobile-5, .grid-tablet-5, .grid-netbook-5, .grid-6, .grid-small-mobile-6, .grid-mobile-6, .grid-tablet-6, .grid-netbook-6, .grid-7, .grid-small-mobile-7, .grid-mobile-7, .grid-tablet-7, .grid-netbook-7, .grid-8, .grid-small-mobile-8, .grid-mobile-8, .grid-tablet-8, .grid-netbook-8, .grid-9, .grid-small-mobile-9, .grid-mobile-9, .grid-tablet-9, .grid-netbook-9, .grid-10, .grid-small-mobile-10, .grid-mobile-10, .grid-tablet-10, .grid-netbook-10, .grid-11, .grid-small-mobile-11, .grid-mobile-11, .grid-tablet-11, .grid-netbook-11, .grid-12, .grid-small-mobile-12, .grid-mobile-12, .grid-tablet-12, .grid-netbook-12, header, header .title, header .info, header .panel, header .text, .main, .main .boxes .box, .main .left-column, .main .right-column, footer, footer .banner {
+.grid-0, .grid-small-mobile-0, .grid-mobile-0, .grid-tablet-0, .grid-netbook-0, .grid-1, .grid-small-mobile-1, .grid-mobile-1, .grid-tablet-1, .grid-netbook-1, .grid-2, .grid-small-mobile-2, .grid-mobile-2, .grid-tablet-2, .grid-netbook-2, .grid-3, .grid-small-mobile-3, .grid-mobile-3, .grid-tablet-3, .grid-netbook-3, .grid-4, .grid-small-mobile-4, .grid-mobile-4, .grid-tablet-4, .grid-netbook-4, .grid-5, .grid-small-mobile-5, .grid-mobile-5, .grid-tablet-5, .grid-netbook-5, .grid-6, .grid-small-mobile-6, .grid-mobile-6, .grid-tablet-6, .grid-netbook-6, .grid-7, .grid-small-mobile-7, .grid-mobile-7, .grid-tablet-7, .grid-netbook-7, .grid-8, .grid-small-mobile-8, .grid-mobile-8, .grid-tablet-8, .grid-netbook-8, .grid-9, .grid-small-mobile-9, .grid-mobile-9, .grid-tablet-9, .grid-netbook-9, .grid-10, .grid-small-mobile-10, .grid-mobile-10, .grid-tablet-10, .grid-netbook-10, .grid-11, .grid-small-mobile-11, .grid-mobile-11, .grid-tablet-11, .grid-netbook-11, .grid-12, .grid-small-mobile-12, .grid-mobile-12, .grid-tablet-12, .grid-netbook-12, header, header .title, header .info, header .panel, header .text, .main, .main .boxes .box, .main .left-column, .main .right-column, footer, footer .banner, .slider {
   display: inline-block;
   min-height: 1px;
   -webkit-box-sizing: border-box;
@@ -2852,23 +2852,120 @@ header .text p {
   float: left;
   direction: ltr;
   padding: 0 10px;
-  width: 41.66667%;
-  *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  width: 33.33333%;
+  *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
 }
 /* line 172, ../sass/_layout.scss */
 .main .right-column {
   float: left;
   direction: ltr;
   padding: 0 10px;
-  width: 58.33333%;
-  *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  width: 66.66667%;
+  *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
 }
 /* line 174, ../sass/_layout.scss */
 .main .right-column h3 {
   text-transform: uppercase;
 }
+/* line 178, ../sass/_layout.scss */
+.main .right-column .results p {
+  display: block;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 12px 20px !important;
+  margin: 20px 0;
+  color: white;
+  font-weight: 700;
+  text-align: right;
+}
+/* line 187, ../sass/_layout.scss */
+.main .right-column .results p span {
+  float: left;
+  text-align: left;
+  font-weight: 300;
+}
+/* line 192, ../sass/_layout.scss */
+.main .right-column .results p.red {
+  background-color: #ff0033;
+}
+/* line 195, ../sass/_layout.scss */
+.main .right-column .results p.yellow {
+  background-color: #ffcc00;
+}
+/* line 198, ../sass/_layout.scss */
+.main .right-column .results p.orange {
+  background-color: #ff6633;
+}
+/* line 201, ../sass/_layout.scss */
+.main .right-column .results p.mud-green {
+  background-color: #669999;
+}
+/* line 204, ../sass/_layout.scss */
+.main .right-column .results p.white {
+  color: black;
+}
+@media screen and (max-width: 980px) {
+  /* line 210, ../sass/_layout.scss */
+  .main .left-column, .main .right-column {
+    float: left;
+    direction: ltr;
+    padding: 0 10px;
+    width: 50%;
+    *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  }
+}
+@media screen and (max-width: 640px) {
+  /* line 210, ../sass/_layout.scss */
+  .main .left-column, .main .right-column {
+    float: left;
+    direction: ltr;
+    padding: 0 10px;
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  }
+}
+/* line 218, ../sass/_layout.scss */
+.main fieldset {
+  width: 80%;
+  margin-bottom: 10px;
+}
+/* line 221, ../sass/_layout.scss */
+.main fieldset label {
+  font-weight: 300;
+}
+/* line 224, ../sass/_layout.scss */
+.main fieldset input {
+  border-radius: 10px;
+  width: 100%;
+  padding: 6px 20px;
+  border: 1px solid #cccccc;
+  font-size: 18px;
+}
+/* line 232, ../sass/_layout.scss */
+.main .yellow-button {
+  background-color: #ffcc00;
+  color: #666666;
+  font-weight: 500;
+  font-size: 32px;
+  border: none;
+  border-radius: 10px;
+  text-align: left;
+  padding: 20px;
+}
+@media screen and (max-width: 980px) {
+  /* line 232, ../sass/_layout.scss */
+  .main .yellow-button {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 640px) {
+  /* line 232, ../sass/_layout.scss */
+  .main .yellow-button {
+    font-size: 16px;
+  }
+}
 
-/* line 180, ../sass/_layout.scss */
+/* line 250, ../sass/_layout.scss */
 footer {
   float: left;
   direction: ltr;
@@ -2877,13 +2974,13 @@ footer {
   *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   margin-bottom: 20px;
 }
-/* line 183, ../sass/_layout.scss */
+/* line 253, ../sass/_layout.scss */
 footer p {
   font-size: 16px;
   color: #cccccc;
   float: right;
 }
-/* line 188, ../sass/_layout.scss */
+/* line 258, ../sass/_layout.scss */
 footer .banner {
   float: left;
   direction: ltr;
@@ -2893,4 +2990,16 @@ footer .banner {
   height: 200px;
   background: url("../images/banner.png") no-repeat;
   background-size: contain;
+}
+
+/* line 267, ../sass/_layout.scss */
+.slider {
+  float: left;
+  direction: ltr;
+  padding: 0 10px;
+  width: 100%;
+  *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  display: inline-block;
+  position: relative;
+  height: 35px;
 }

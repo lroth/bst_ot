@@ -167,12 +167,82 @@ header {
         }
     }
     .left-column {
-        @include gridle(5);
+        @include gridle(4);
     }
     .right-column {
-        @include gridle(7);
+        @include gridle(8);
         h3 {
             text-transform: uppercase;
+        }
+        .results {
+            p {
+                display: block;
+                border: 2px solid $black;
+                border-radius: 10px;
+                padding: 12px 20px !important;
+                margin: 20px 0;
+                color: $white;
+                font-weight: 700;
+                text-align: right;
+                span {
+                    float: left;
+                    text-align: left;
+                    font-weight: 300;
+                }
+                &.red {
+                    background-color: #ff0033;
+                }
+                &.yellow {
+                    background-color: #ffcc00;
+                }
+                &.orange {
+                    background-color: #ff6633;
+                }
+                &.mud-green {
+                    background-color: #669999;
+                }
+                &.white {
+                    color: $black;
+                }
+            }
+        }
+    }
+    .left-column, .right-column {
+        @include gridle_state(tablet) {
+            @include gridle(6);
+        }
+        @include gridle_state(mobile) {
+            @include gridle(12);
+        }
+    }
+    fieldset {
+        width: 80%;
+        margin-bottom: 10px;
+        label {
+            font-weight: 300;
+        }
+        input {
+            border-radius: 10px;
+            width: 100%;
+            padding: 6px 20px;
+            border: 1px solid $grey;
+            font-size: 18px;
+        }
+    }
+    .yellow-button {
+        background-color: $yellow;
+        color: $dark;
+        font-weight: 500;
+        font-size: 32px;
+        border: none;
+        border-radius: 10px;
+        text-align: left;
+        padding: 20px;
+        @include gridle_state(tablet) {
+            font-size: 22px;
+        }
+        @include gridle_state(mobile) {
+            font-size: 16px;
         }
     }
 }
@@ -191,4 +261,12 @@ footer {
         background: url('../images/banner.png') no-repeat;
         background-size: contain;
     }
+}
+
+// wigdet
+.slider {
+    @include gridle(12);
+    display: inline-block;
+    position: relative;
+    height: 35px;
 }
