@@ -2856,7 +2856,15 @@ header .text p {
   border-right: 2px solid #cccccc;
   padding-right: 25px;
 }
-/* line 174, ../sass/_layout.scss */
+@media screen and (max-width: 640px) {
+  /* line 169, ../sass/_layout.scss */
+  .main .left-column {
+    border-right: none;
+    padding-bottom: 50px !important;
+    border-bottom: 2px solid #cccccc;
+  }
+}
+/* line 179, ../sass/_layout.scss */
 .main .right-column {
   float: left;
   direction: ltr;
@@ -2865,18 +2873,24 @@ header .text p {
   *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   padding-left: 28px;
 }
-/* line 177, ../sass/_layout.scss */
+@media screen and (max-width: 640px) {
+  /* line 179, ../sass/_layout.scss */
+  .main .right-column {
+    margin-top: 40px;
+  }
+}
+/* line 185, ../sass/_layout.scss */
 .main .right-column h3 {
   text-transform: uppercase;
 }
-/* line 181, ../sass/_layout.scss */
+/* line 189, ../sass/_layout.scss */
 .main .right-column .results .colored {
   background-color: rgba(0, 0, 0, 0.05);
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
 }
-/* line 187, ../sass/_layout.scss */
+/* line 195, ../sass/_layout.scss */
 .main .right-column .results p {
   display: block;
   border: none;
@@ -2887,35 +2901,35 @@ header .text p {
   font-weight: 700;
   text-align: right;
 }
-/* line 196, ../sass/_layout.scss */
+/* line 204, ../sass/_layout.scss */
 .main .right-column .results p span {
   float: left;
   text-align: left;
   font-weight: 300;
 }
-/* line 201, ../sass/_layout.scss */
+/* line 209, ../sass/_layout.scss */
 .main .right-column .results p.red {
   background-color: #ff0033;
 }
-/* line 204, ../sass/_layout.scss */
+/* line 212, ../sass/_layout.scss */
 .main .right-column .results p.yellow {
   background-color: #ffcc00;
 }
-/* line 207, ../sass/_layout.scss */
+/* line 215, ../sass/_layout.scss */
 .main .right-column .results p.orange {
   background-color: #ff6633;
 }
-/* line 210, ../sass/_layout.scss */
+/* line 218, ../sass/_layout.scss */
 .main .right-column .results p.mud-green {
   background-color: #669999;
 }
-/* line 213, ../sass/_layout.scss */
+/* line 221, ../sass/_layout.scss */
 .main .right-column .results p.white {
   border: 1px solid black;
   color: black;
 }
 @media screen and (max-width: 980px) {
-  /* line 220, ../sass/_layout.scss */
+  /* line 228, ../sass/_layout.scss */
   .main .left-column, .main .right-column {
     float: left;
     direction: ltr;
@@ -2925,7 +2939,7 @@ header .text p {
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 220, ../sass/_layout.scss */
+  /* line 228, ../sass/_layout.scss */
   .main .left-column, .main .right-column {
     float: left;
     direction: ltr;
@@ -2934,16 +2948,16 @@ header .text p {
     *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   }
 }
-/* line 228, ../sass/_layout.scss */
+/* line 236, ../sass/_layout.scss */
 .main fieldset {
   width: 80%;
   margin-bottom: 10px;
 }
-/* line 231, ../sass/_layout.scss */
+/* line 239, ../sass/_layout.scss */
 .main fieldset label {
   font-weight: 300;
 }
-/* line 234, ../sass/_layout.scss */
+/* line 242, ../sass/_layout.scss */
 .main fieldset input {
   border-radius: 10px;
   width: 100%;
@@ -2951,7 +2965,7 @@ header .text p {
   border: 1px solid #cccccc;
   font-size: 18px;
 }
-/* line 242, ../sass/_layout.scss */
+/* line 250, ../sass/_layout.scss */
 .main .yellow-button {
   background-color: #ffcc00;
   color: #666666;
@@ -2963,19 +2977,19 @@ header .text p {
   padding: 20px;
 }
 @media screen and (max-width: 980px) {
-  /* line 242, ../sass/_layout.scss */
+  /* line 250, ../sass/_layout.scss */
   .main .yellow-button {
     font-size: 22px;
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 242, ../sass/_layout.scss */
+  /* line 250, ../sass/_layout.scss */
   .main .yellow-button {
     font-size: 16px;
   }
 }
 
-/* line 260, ../sass/_layout.scss */
+/* line 268, ../sass/_layout.scss */
 footer {
   float: left;
   direction: ltr;
@@ -2984,13 +2998,13 @@ footer {
   *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
   margin-bottom: 20px;
 }
-/* line 263, ../sass/_layout.scss */
+/* line 271, ../sass/_layout.scss */
 footer p {
   font-size: 16px;
   color: #cccccc;
   float: right;
 }
-/* line 268, ../sass/_layout.scss */
+/* line 276, ../sass/_layout.scss */
 footer .banner {
   float: left;
   direction: ltr;
@@ -3002,7 +3016,7 @@ footer .banner {
   background-size: contain;
 }
 
-/* line 277, ../sass/_layout.scss */
+/* line 285, ../sass/_layout.scss */
 .slider {
   float: left;
   direction: ltr;
@@ -3014,7 +3028,7 @@ footer .banner {
   height: 35px;
   margin-top: 45px;
 }
-/* line 284, ../sass/_layout.scss */
+/* line 292, ../sass/_layout.scss */
 .slider span.full, .slider span.steps {
   height: 4px;
   z-index: 0;
@@ -3027,15 +3041,15 @@ footer .banner {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 296, ../sass/_layout.scss */
+/* line 304, ../sass/_layout.scss */
 .slider span.full {
   background: #cccccc;
 }
-/* line 299, ../sass/_layout.scss */
+/* line 307, ../sass/_layout.scss */
 .slider span.steps {
   background: #ffcc00;
 }
-/* line 302, ../sass/_layout.scss */
+/* line 310, ../sass/_layout.scss */
 .slider span.pointer {
   cursor: pointer;
   width: 18px;
@@ -3043,7 +3057,7 @@ footer .banner {
   background: url("../images/marker.png") no-repeat;
   background-size: contain;
 }
-/* line 309, ../sass/_layout.scss */
+/* line 317, ../sass/_layout.scss */
 .slider span.bubble {
   top: -52px;
   background: #565656;
@@ -3054,7 +3068,7 @@ footer .banner {
   min-width: 16px;
   text-align: center;
 }
-/* line 318, ../sass/_layout.scss */
+/* line 326, ../sass/_layout.scss */
 .slider span.bubble:after {
   content: "";
   background: url("../images/triangleBottom.png") top center no-repeat;
@@ -3066,7 +3080,7 @@ footer .banner {
   text-align: center;
   overflow: visible;
 }
-/* line 329, ../sass/_layout.scss */
+/* line 337, ../sass/_layout.scss */
 .slider span.bubble.floor, .slider span.bubble.ceiling {
   opacity: 0 !important;
 }

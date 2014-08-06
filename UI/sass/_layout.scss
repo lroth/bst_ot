@@ -170,10 +170,18 @@ header {
         @include gridle(4);
         border-right: 2px solid $grey;
         padding-right: 25px;
+        @include gridle_state(mobile) {
+            border-right: none;
+            padding-bottom: 50px !important;
+            border-bottom: 2px solid $grey;
+        }
     }
     .right-column {
         @include gridle(8);
         padding-left: 28px;
+        @include gridle_state(mobile) {
+            margin-top: 40px;
+        }
         h3 {
             text-transform: uppercase;
         }
