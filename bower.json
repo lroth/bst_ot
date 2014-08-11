@@ -9,6 +9,7 @@
     "venturocket-angular-slider": "~0.3.2",
     "angular-touch": "~1.2.16",
     "jspdf": "git://github.com/MrRio/jsPDF.git",
-    "gridle": "~1.1.0"
+    "gridle": "~1.1.0",
+    "d3": "~3.4.11"
   }
 }

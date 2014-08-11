@@ -7,11 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="../UI/css/screen.css">
-        <script src="../vendor/jspdf/dist/jspdf.min.js"></script>
-        <script src="../vendor/modernizr/modernizr.js"></script>
-        <script src="../vendor/angular/angular.js"></script>
-        <script src="../vendor/angular-touch/angular-touch.min.js"></script>
-        <script src="../vendor/venturocket-angular-slider/build/angular-slider.min.js"></script>
         <!--[if lt IE 9]>
             <link rel="stylesheet" href="../UI/css/ie.css">
         <![endif]-->
@@ -19,8 +14,15 @@
         <!--[if lt IE 9]>
             <script src="../UI/js/ie.js"></script>
         <![endif]-->
+        <style type="text/css" media="screen">
+            path {
+                stroke: black;
+                stroke-width: 1;
+                fill: none;
+            }
+        </style>
     </head>
-    <body ng-app="app">
+    <body ng-app="app" ng-controller="AppCtrl" >
         <header>
             <div class="title">
                 <img src="../UI/images/logo.png">
@@ -54,27 +56,23 @@
                         <div class="bordered">
                             <fieldset>
                                 <label>Name</label>
-                                <input type="text" name="name">
+                                <input type="text" name="name" ng-model="name">
                             </fieldset>
                             <fieldset>
                                 <label>Age</label>
-                                <input type="text" name="age">
+                                <input type="text" name="age" ng-model="age">
                             </fieldset>
                             <fieldset>
                                 <label>Current annual salary</label>
-                                <input type="text" name="salary">
-                            </fieldset>
-                            <fieldset>
-                                <label>Current annual salary</label>
-                                <input type="text" name="salary">
+                                <input type="text" name="salary" ng-model="salary">
                             </fieldset>
                             <fieldset>
                                 <label>How much do have you saved in private pension plans / ISA for retirement</label>
-                                <input type="text" name="saved_money">
+                                <input type="text" name="saved_money" ng-model="saved_money">
                             </fieldset>
                             <fieldset>
                                 <label>Average monthly payments into those private pension plans and ISAs until you retire?</label>
-                                <input type="text" name="monthly_payments">
+                                <input type="text" name="monthly_payments" ng-model="monthly_payments">
                             </fieldset>
                         </div>
                         <div class="bordered">
@@ -101,7 +99,7 @@
                                     slider
                                     ng-model="increase_salary"
                                     floor="0"
-                                    ceiling="150"
+                                    ceiling="100"
                                     step="1"
                                     precision="0">
                                 </div>
@@ -128,6 +126,9 @@
                             </button>
                     </div>
                     <div class="right-column">
+
+                        <div d3-chart data="d3Data" height="530" width="750"></div>
+
                         <h3><span class="yellow">Joe Bloggs</span> Retirement Income Results</h3>
                         <div class="graph bordered"></div>
                         <div class="results" id="results">
@@ -170,6 +171,12 @@
             <div class="banner bordered"></div>
             <p>&copy; 2014 Wesleyan Assurance Society</p>
         </footer>
+        <script src="../vendor/jspdf/dist/jspdf.min.js"></script>
+        <script src="../vendor/modernizr/modernizr.js"></script>
+        <script src="../vendor/angular/angular.js"></script>
+        <script src="../vendor/angular-touch/angular-touch.min.js"></script>
+        <script src="../vendor/venturocket-angular-slider/build/angular-slider.min.js"></script>
+        <script src="../vendor/d3/d3.min.js"></script>
         <script src="../UI/js/app.js"></script>
         <!--[if lt IE 9]>
             <script src="../UI/js/custom.ie.js"></script>

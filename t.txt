@@ -1,9 +1,38 @@
+Calculations:
 
-There are 4 user entered variables (Client Age - 18 to 50, Client age at end - blocks of age 50-60 etc, Cover amount - entered manually and had option of monthly or weekly, and finally waiting period - fixed set of data fields in weeks). There are also 4 output figures from the data, different premiums for guaranteed, reviewable and budget Personal Sick Pay.
-We are flexible on the framework used to build it as we plan for you to build, develop and maintain it (if needed).
-The design is based on a bootstrap layout but again this is just a guide.
-The sliders on the page to choose the values were chosen based on the examples at the link:
-From my discussions with Ross, the data will need to be in arrays, and the basic calculation needed is the amount entered in the ‘Cover Amount’ form field multiplied by the decimal number from the array (chosen by the other options chosen by the user from the form field).
-We want the tool to be dynamic, so once an amount is entered in ‘Cover Amount’, the 4 premiums will change as the sliders are moved.
-The buttons at the bottom will all create a PDF of the tool to either email, save or print.
-As it’s in an iFrame popups may cause a problem so the ‘info’ buttons will need to be jQuery (but we will be advised on this by you). Also we will need to ensure the CSS is unique so as conflicts with the parent website don’t arise.
+Hopefully these are simple, but still detailed enough for the tool to work convincingly.
+
+How much do you have saved in a private pension/isa = [value entered] x (1.05)^(retirement age – current age)
+Average monthly payments into those private pension plans = ([value entered] x 12) x ((1.05^(retirement age – current age)-1)/0.05)
+
+The values produced by these calculations would then be added together, and the income they produce each year in retirement would be this total multiplied by 0.05
+
+So in the example sent through:
+
+Existing: £60,000 x (1.05)^25 = £203,181
+Regular: £3600 x ((1.05^25-1)/0.05) = £171,817
+Total: £203,181 + £171,817 = £374,998
+Retirement Income: £374,999 x 0.05 = £18,749 per annum
+
+To keep the occupational pension calculation simple you could just assume their career starts at age 30, and the person builds up entitlement to 1/80th of their salary at retirement for every year past this which they work. So, assuming we know an estimate for salary at retirement, you just multiply that figure by: [salary at retirement] x ((age at retirement-30)/80)
+
+So, if salary at retirement was £100,000, at age 67: £100,000 x (67-30)/80 = £46,250.
+
+
+FIELDS DEFINITIONS:
+
+1. Age: - min/max
+2. Current annual salary: min/max
+3. How much do have you saved in private pension plans / ISA for retirement: [value entered] x (1.05)^(retirement age – current age)
+> question - should it be editable?
+4. Average monthly payments into those private pension plans and ISAs until you retire?:
+> formula is not working with your sample calculations - please provide it one more time and question should it be editable.
+5. Planned retirement age - min/max
+6. How much do estimate your salary will increase by every 5 years before you retire (%)
+7. Desired annual retirement income £ - min/max?
+8. Retirement shortfall - FORMULA
+9. Private pension and isa plans (annual gross) - FORMULA
+10. Occupational pension scheme (annual gross) - FORMULA
+11. State pension (annual gross) - FORMULA
+12. 25% tax free lump sum at retirement - FORMULA
+13. Your future career earnings are (in today's terms) - FORMULA

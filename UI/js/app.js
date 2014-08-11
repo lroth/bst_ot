@@ -3,183 +3,133 @@ var app = angular.module('app', ['vr.directives.slider']);
 
 // Controller
 app.controller('AppCtrl', function ($scope, $http) {
-    $scope.csv_data      = false;
-    $scope.widget_height = '0px';
-    $scope.tips          = {};
-
-    // dictionaries
-    $scope.periods    = [0, 1, 4, 8, 13, 26, 52, 104];
-    $scope.paid_names = ['Paid Monthly', 'Paid Weekly'];
-    $scope.max_amount = [8333, 1923];
-    $scope.min_value  = [5, 0];
-    $scope.min_cover  = [100, 23];
-    // $scope.divides    = [4.33, 0.23];
-    $scope.divides    = [52/12, 12/52];
-
     // default values
-    $scope.paid_type         = 0;
-    $scope.amount            = 0;
-    $scope.amount_monthly    = 0;
-    $scope.send_email        = false;
-    $scope.age_range_error   = false;
-    $scope.cover_value_error = false;
-    $scope.result_min_errors = [false, false, false, false];
-
-    // default results
-    $scope.personal_guaranteed        = 0;
-    $scope.personal_reviewable        = 0;
-    $scope.budget_personal_guaranteed = 0;
-    $scope.budget_personal_reviewable = 0;
-
-    $scope.personal_guaranteed_info        = '';
-    $scope.personal_reviewable_info        = '';
-    $scope.budget_personal_guaranteed_info = '';
-    $scope.budget_personal_reviewable_info = '';
-
-    $http({
-        method: 'GET',
-        url: 'UI/js/csv.json'
-    }).success(function(data, status, headers, config) {
-        $scope.csv_data      = data;
-        $scope.widget_height = 'auto';
-    });
-
-    // paid switcher
-    $scope.changePaid = function () {
-        $scope.paid_type = +(!$scope.paid_type);
-        $scope.amount = Math.round($scope.amount * get_divide());
-    }
-
-    $scope.toggleHelp = function (idx) {
-        $scope.tips[idx] = !$scope.tips[idx];
-    }
-
-    // check max amount value
-    function check_amount () {
-        // limit amount based on paid type
-        $scope.amount = Math.min($scope.amount, $scope.max_amount[$scope.paid_type]);
-        // save amount monthly that will be used for calculations
-        if ($scope.paid_type) {
-            $scope.amount_monthly = round($scope.amount * $scope.divides[0]);
-        } else {
-            $scope.amount_monthly = round($scope.amount);
-        }
-        // check the min cover value
-        fix_min_value();
-    }
+    $scope.name             = '';
+    $scope.age              = 0;
+    $scope.salary           = 0;
+    $scope.saved_money      = 0;
+    $scope.monthly_payments = 0;
+    $scope.retirement_age   = 60;
+    $scope.increase_salary  = 0;
+    $scope.income           = 0;
 
     function round (num) {
         return Number(num).toFixed(2);
     }
 
-    // get range base on age_end
-    function get_range (age_end) {
-        if (age_end <= 60)
-            return '50 - 60';
-
-        if (age_end <= 65)
-            return '61 - 65';
-
-        return '66 - 70';
-    }
-
-    // get future price multiplier
-    function get_multiplier (idx) {
-        return $scope.csv_data[$scope.age_start][get_range($scope.age_end)][idx][$scope.period];
-    }
-
-    // weekly, monthly
-    function get_divide () {
-        return $scope.divides[$scope.paid_type];
-    }
-
-    // minimum price value (weekly, monthly)
-    function get_min_value () {
-        return $scope.min_value[$scope.paid_type];
-    }
-
-    function fix_min_value () {
-        //fix value for calc
-        if ($scope.amount_monthly < $scope.min_cover[$scope.paid_type]) {
-            $scope.amount_monthly = $scope.min_cover[$scope.paid_type];
-        }
-
-        //validation
-        if ($scope.amount > 0 && $scope.amount < $scope.min_cover[$scope.paid_type]) {
-            $scope.cover_value_error = 'Cover amount cannot be less than ' + $scope.min_cover[$scope.paid_type];
-        } else {
-            $scope.cover_value_error = ''
-        }
-    }
-
-    // calc single price value
-    function calc_value (idx, min) {
-        var value = $scope.amount_monthly * get_multiplier(idx);
-        if (value) {
-            //if min
-            if (value < min) {
-                $scope.result_min_errors[idx] = 'under the Flexible Protection Plan minimum £5 monthly premium';
-
-                return 'N/A';
-            } else {
-                $scope.result_min_errors[idx] = false;
-            }
-            return round(Math.max(value, min || 0));
-        }
-        return 0;
-    }
-
-    function calc_info (idx, min) {
-        var info = $scope.amount_monthly + ' x ' + get_multiplier(idx) + ' = ' + calc_value(idx, min);
-        if (min) {
-            info = info + ' (minimum: ' + min + ')';
-        }
-
-        return info;
-    }
-
     // calculate
     function calc () {
-        if ($scope.csv_data && $scope.amount > 0) {
-            // new data from scope update
-            var min_value = get_min_value();
+        $scope.saved_money      = round($scope.salary * Math.pow(1.05, $scope.retirement_age - $scope.age));
+        $scope.monthly_payments = round(($scope.salary * 12) * ((Math.pow(1.05, $scope.retirement_age - $scope.age) - 1)/0.05));
 
-            // calculate
-            $scope.personal_guaranteed        = calc_value(0, min_value);
-            $scope.personal_reviewable        = calc_value(1, min_value);
-            $scope.budget_personal_guaranteed = calc_value(2, min_value);
-            $scope.budget_personal_reviewable = calc_value(3, min_value);
-
-            // infos
-            $scope.personal_guaranteed_info        = calc_info(0, min_value);
-            $scope.personal_reviewable_info        = calc_info(1, min_value);
-            $scope.budget_personal_guaranteed_info = calc_info(2, min_value);
-            $scope.budget_personal_reviewable_info = calc_info(3, min_value);
-        }
-    }
-
-    function check_age_range () {
-        if ($scope.csv_data) {
-            if ($scope.age_start > $scope.age_end) {
-                $scope.age_range_error = 'Client age at start cannot be greater than age at end';
-            } else {
-                // min 5 years diff
-                if ($scope.age_end - $scope.age_start < 5) {
-                    $scope.age_range_error = 'Minimum policy term is 5 years';
-                } else {
-                    $scope.age_range_error = '';
-                }
-            }
+        // console.log($scope.retirement_age, 'controller');
+        $scope.d3Data = {
+            'salary':         $scope.salary,
+            'age':            $scope.age,
+            'retirement_age': $scope.retirement_age
         }
     }
 
     // watch for changes of this values
-    $scope.$watch('age_start + age_end', check_age_range);
-    $scope.$watch('amount + paid_type', check_amount);
-    $scope.$watch('amount + age_start + age_end + paid_type + period', calc);
+    $scope.$watch('name + age + retirement_age + salary', calc);
 
-    // translate - 0 -> 7 to set of $scope.periods
-    $scope.translateFn = function (value) {
-        return $scope.periods[value];
-    }
+
 });
+
+
+// d3js directive
+app.directive('d3Chart', [function() {
+    return {
+        restrict: 'EA',
+        scope: {
+            data: '=' // bi-directional data-binding
+        },
+        link: function(scope, element, attrs) {
+            // get size from attributes
+            var width  = (attrs.width) || 200,
+                height = (attrs.height) || 100;
+
+            var margin = {top: 30, right: 20, bottom: 30, left: 80},
+                width  = width - margin.left - margin.right,
+                height = height - margin.top - margin.bottom;
+
+            var formatCurrency = function(d) { return "£" + d; };
+
+            // Adds the svg canvas
+            var svg = d3.select(element[0])
+                .append("svg")
+                    .style('background', 'rgba(0, 0, 0, 0.05)')
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                    .attr("transform",
+                          "translate(" + margin.left + "," + margin.top + ")");
+
+            // Set the ranges
+            console.log([0, width - 200]);
+            var x = d3.scale.linear().range([0, width - 200]);
+            var y = d3.scale.linear().range([height, 0]);
+
+
+            // Define the axes
+            var xAxis = d3.svg.axis().scale(x)
+                .orient("bottom");
+
+            var yAxis = d3.svg.axis().scale(y)
+                .orient("left").ticks(5).tickFormat(formatCurrency);
+
+            // watch for data changes and re-render
+            scope.$watch('data', function(newVals, oldVals) {
+              return scope.render(newVals);
+            }, true);
+
+            scope.render = function(data) {
+                console.log(data, 'directive');
+                // remove all previous items before render
+                svg.selectAll('*').remove();
+
+                // If we don't pass any data, return out of the element
+                if (!data) return;
+
+                // set data values
+                x.domain([data.age, data.retirement_age]);
+                y.domain([0, data.salary]);
+// debugger;
+                xAxis.tickValues(x.domain());
+                // Add the X Axis
+                svg.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis);
+
+                // Add the Y Axis
+                svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis);
+
+                // line
+                // create a line function that can convert data[] into x and y points
+                var line = d3.svg.line()
+                    // assign the X function to plot our line as we wish
+                    .x(function(d,i) {
+                        // verbose logging to show what's actually being done
+                        console.log('Plotting X value for data point: ' + d + ' using index: ' + i + ' to be at: ' + x(i) + ' using our xScale.');
+                        // return the X coordinate where we want to plot this datapoint
+                        return x(i);
+                    })
+                    .y(function(d, i) {
+                        // verbose logging to show what's actually being done
+                        console.log('Plotting Y value for data point: ' + d + ' to be at: ' + y(d) + " using our yScale.");
+                        // return the Y coordinate where we want to plot this datapoint
+                        return y(d);
+                    });
+
+                // generate dataset
+                var ages   = d3.range(data.age, data.retirement_age);
+                // var salary = d3.range(0, data.salary);
+                // var area_data = d3.range(data.age, data.retirement_age).map(function(i) { return {'age': i } });
+                svg.append("svg:path").attr("d", line(ages));
+            }
+        }
+    };
+  }]);
