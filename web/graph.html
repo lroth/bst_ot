@@ -16,9 +16,38 @@
         <![endif]-->
         <style type="text/css" media="screen">
             path {
-                stroke: black;
-                stroke-width: 1;
+                stroke: #575757;
+                stroke-width: 2;
+                shape-rendering:crispEdges;
+                /*width: 1px;*/
                 fill: none;
+            }
+            .area {
+                fill: #8a86a0;
+                stroke-width: 0;
+            }
+            text {
+                fill: #ababab;
+            }
+            .state_rect {
+                fill: #809b9a;
+            }
+            .occupation_rect {
+                fill: #ff7323;
+            }
+            .private_rect {
+                fill: #febd11;
+            }
+            #diagonalHatch path{
+                stroke: #ff043d;
+            }
+            .shortfall_rect {
+                fill: url(#diagonalHatch);
+            }
+            .marker-line {
+                stroke: #575757;
+                stroke-width: 2;
+                /*stroke-dasharray: [3,3];*/
             }
         </style>
     </head>
@@ -129,25 +158,25 @@
 
                         <div d3-chart data="d3Data" height="530" width="750"></div>
 
-                        <h3><span class="yellow">Joe Bloggs</span> Retirement Income Results</h3>
+                        <h3><span class="yellow">{{ name }}</span> Retirement Income Results</h3>
                         <div class="graph bordered"></div>
                         <div class="results" id="results">
                             <div class="colored bordered">
                                 <p class="red">
-                                    <span>Retirement shortfall</span> <em ng-hide="result_min_errors[0]">&pound;</em>{{ personal_guaranteed }}
+                                    <span>Retirement shortfall</span> <em ng-hide="result_min_errors[0]">&pound;</em>{{ shortfall }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[0]">{{ result_min_errors[0] }}</div>
                                 <div class="bordered" style="padding-bottom: 20px;"></div>
                                 <p class="yellow">
-                                    <span>Private pension and isa plans (annual gross)</span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ personal_guaranteed }}
+                                    <span>Private pension and isa plans (annual gross)</span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ private_pension }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[1]">{{ result_min_errors[1] }}</div>
                                 <p class="orange">
-                                    <span>Occupational pension scheme (annual gross)</span> <em ng-hide="result_min_errors[2]">&pound;</em>{{ personal_guaranteed }}
+                                    <span>Occupational pension scheme (annual gross)</span> <em ng-hide="result_min_errors[2]">&pound;</em>{{ occupational_pension }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[2]">{{ result_min_errors[2] }}</div>
                                 <p class="mud-green">
-                                    <span>State pension (annual gross)</span> <em ng-hide="result_min_errors[3]">&pound;</em>{{ personal_guaranteed }}
+                                    <span>State pension (annual gross)</span> <em ng-hide="result_min_errors[3]">&pound;</em>{{ state_pension }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[3]">{{ result_min_errors[3] }}</div>
                             </div>
