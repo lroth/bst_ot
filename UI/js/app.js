@@ -38,17 +38,17 @@ app.controller('AppCtrl', function ($scope, $http) {
     // calculate
     function calc () {
         $scope.age_diff = $scope.retirement_age - $scope.age;
-        // $scope.saved_money      = round($scope.salary * Math.pow(1.05, $scope.retirement_age - $scope.age));
-        // $scope.monthly_payments = round(($scope.salary * 12) * ((Math.pow(1.05, $scope.retirement_age - $scope.age) - 1)/0.05));
 
         //estimate increase by every 5 years before you retire (%)
         $scope.increased_salary     = (1 * $scope.salary) * (Math.pow((1 + $scope.increase_salary/100), $scope.age_diff / 5));
+
         $scope.occupational_pension = $scope.increased_salary * (($scope.retirement_age - 30)/80);
+
         $scope.private_pension      = ($scope.saved_money * (Math.pow(0.05, $scope.age_diff))) +
                                       (
                                         ($scope.monthly_payments * 12) *
-                                        ((Math.pow(0.05, $scope.age_diff))/0.05))
-                                      * 0.05;
+                                        ((Math.pow(0.05, $scope.age_diff))/0.05)
+                                      ) * 0.05;
         // debugger;
         $scope.total     = $scope.private_pension + $scope.occupational_pension + $scope.state_pension;
         $scope.shortfall = $scope.income - $scope.total;

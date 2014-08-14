@@ -2459,7 +2459,7 @@ body {
   font-size: 18px;
   font-weight: 300;
   overflow-x: hidden;
-  max-width: 1200px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 10px;
 }
@@ -2661,7 +2661,7 @@ header .info ul {
 /* line 40, ../sass/_layout.scss */
 header .info ul li {
   float: left;
-  padding-right: 15px;
+  padding-right: 10px;
 }
 /* line 43, ../sass/_layout.scss */
 header .info ul li:last-child {
