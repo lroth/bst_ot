@@ -164,26 +164,26 @@
                         <div class="results" id="results">
                             <div class="colored bordered">
                                 <p class="red">
-                                    <span>Retirement shortfall</span> <em ng-hide="result_min_errors[0]">&pound;</em>{{ shortfall }}
+                                    <span>Retirement shortfall</span> <em ng-hide="result_min_errors[0]">&pound;</em>{{ shortfall|number:2 }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[0]">{{ result_min_errors[0] }}</div>
                                 <div class="bordered" style="padding-bottom: 20px;"></div>
                                 <p class="yellow">
-                                    <span>Private pension and isa plans (annual gross)</span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ private_pension }}
+                                    <span>Private pension and isa plans (annual gross)</span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ private_pension|number:2 }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[1]">{{ result_min_errors[1] }}</div>
                                 <p class="orange">
-                                    <span>Occupational pension scheme (annual gross)</span> <em ng-hide="result_min_errors[2]">&pound;</em>{{ occupational_pension }}
+                                    <span>Occupational pension scheme (annual gross)</span> <em ng-hide="result_min_errors[2]">&pound;</em>{{ occupational_pension|number:2 }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[2]">{{ result_min_errors[2] }}</div>
                                 <p class="mud-green">
-                                    <span>State pension (annual gross)</span> <em ng-hide="result_min_errors[3]">&pound;</em>{{ state_pension }}
+                                    <span>State pension (annual gross)</span> <em ng-hide="result_min_errors[3]">&pound;</em>{{ state_pension|number:2 }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[3]">{{ result_min_errors[3] }}</div>
                             </div>
                             <div class="bordered">
                                 <p class="white">
-                                    <span>25% tax free lump sum at retirement</span> <em ng-hide="result_min_errors[4]">&pound;</em>{{ free }}
+                                    <span>25% tax free lump sum at retirement</span> <em ng-hide="result_min_errors[4]">&pound;</em>{{ free|number:2 }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[4]">{{ result_min_errors[4] }}</div>
                                 <p class="white">
@@ -192,7 +192,7 @@
                                 <div class="error" ng-show="result_min_errors[5]">{{ result_min_errors[5] }}</div>
 
                                 <p class="grey">
-                                    <span>Total Retirement income:</span> {{ total }}
+                                    <span>Total Retirement income:</span>&pound;{{ total|number:2 }}
                                 </p>
                             </div>
                         </div>
