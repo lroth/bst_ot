@@ -111,6 +111,7 @@
                                 <div
                                     class="slider"
                                     slider
+
                                     ng-model="retirement_age"
                                     floor="50"
                                     ceiling="80"
@@ -189,6 +190,10 @@
                                     <span>Your future career earnings are (in today's terms)</span> <em ng-hide="result_min_errors[5]">&pound;</em>{{ personal_guaranteed }}
                                 </p>
                                 <div class="error" ng-show="result_min_errors[5]">{{ result_min_errors[5] }}</div>
+
+                                <p class="grey">
+                                    <span>Total Retirement income:</span> {{ total }}
+                                </p>
                             </div>
                         </div>
                     </div>

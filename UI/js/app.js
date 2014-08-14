@@ -5,31 +5,51 @@ var app = angular.module('app', ['vr.directives.slider']);
 app.controller('AppCtrl', function ($scope, $http) {
     // default values
     $scope.name                 = '';
-    $scope.age                  = 40;
-    $scope.salary               = 30000;
-    $scope.saved_money          = 0;
-    $scope.monthly_payments     = 0;
-    $scope.retirement_age       = 65;
-    $scope.increase_salary      = 10;
-    $scope.increased_salary     = 0;
-    $scope.income               = 0;
-    $scope.age_diff             = 0;
-    $scope.shortfall            = 9189;
-    $scope.private_pension      = 3000;
-    $scope.occupational_pension = 12000;
+
+    // constant value
     $scope.state_pension        = 5811;
 
+    // user data
+    $scope.age                  = 40;
+    $scope.salary               = 30000;
+    $scope.saved_money          = 60000;
+    $scope.monthly_payments     = 300;
+    $scope.retirement_age       = 65;
+    $scope.increase_salary      = 1;
+    $scope.income               = 30000;
+
+    // results
+    $scope.shortfall            = 0;
+    $scope.private_pension      = 0;
+    $scope.occupational_pension = 0;
+    $scope.total                = 0;
+
+    // helpers
+    $scope.age_diff             = 0;
+    $scope.increased_salary     = 0;
+
+    // round helper
     function round (num) {
         return Number(num).toFixed(2);
     }
 
     // calculate
     function calc () {
-        $scope.saved_money      = round($scope.salary * Math.pow(1.05, $scope.retirement_age - $scope.age));
-        $scope.monthly_payments = round(($scope.salary * 12) * ((Math.pow(1.05, $scope.retirement_age - $scope.age) - 1)/0.05));
-        //estimate increase by every 5 years before you retire (%)
         $scope.age_diff = $scope.retirement_age - $scope.age;
-        $scope.increased_salary = (1 * $scope.salary) + ($scope.age_diff / 5) * ($scope.salary * $scope.increase_salary/100);
+        // $scope.saved_money      = round($scope.salary * Math.pow(1.05, $scope.retirement_age - $scope.age));
+        // $scope.monthly_payments = round(($scope.salary * 12) * ((Math.pow(1.05, $scope.retirement_age - $scope.age) - 1)/0.05));
+
+        //estimate increase by every 5 years before you retire (%)
+        $scope.increased_salary     = (1 * $scope.salary) * (Math.pow((1 + $scope.increase_salary/100), $scope.age_diff / 5));
+        $scope.occupational_pension = $scope.increased_salary * (($scope.retirement_age - 30)/80);
+        $scope.private_pension      = ($scope.saved_money * (Math.pow(0.05, $scope.age_diff))) +
+                                      (
+                                        ($scope.monthly_payments * 12) *
+                                        ((Math.pow(0.05, $scope.age_diff))/0.05))
+                                      * 0.05;
+        // debugger;
+        $scope.total     = $scope.private_pension + $scope.occupational_pension + $scope.state_pension;
+        $scope.shortfall = $scope.income - $scope.total;
 
         // console.log($scope.retirement_age, 'controller');
         $scope.d3Data = {
@@ -40,12 +60,14 @@ app.controller('AppCtrl', function ($scope, $http) {
             'shortfall':            $scope.shortfall,
             'private_pension':      $scope.private_pension,
             'occupational_pension': $scope.occupational_pension,
-            'state_pension':        $scope.state_pension
+            'state_pension':        $scope.state_pension,
+            'total':                $scope.total,
+            'income':               $scope.income
         }
     }
 
     // watch for changes of this values
-    $scope.$watch('increase_salary + name + age + retirement_age + salary', calc);
+    $scope.$watch('increase_salary + name + age + retirement_age + salary + income + saved_money + monthly_payments', calc);
 
 
 });
@@ -106,7 +128,7 @@ app.directive('d3Chart', [function() {
                 var yAxis = d3.svg.axis().scale(y)
                     .orient("left").tickFormat(formatCurrency);
 
-                console.log(data, 'directive');
+                // console.log(data, 'directive');
                 // remove all previous items before render
                 svg.selectAll('*').remove();
 
@@ -149,13 +171,13 @@ app.directive('d3Chart', [function() {
                     .text('Desired retirement income');
 
                 bar.append("line")
-    .attr("x1", 0)
-    .attr("x2", width * proportion)
-    .attr("y1", -1 * shortfall)
-    .attr("y2", -1 * shortfall)
-    .attr("stroke-dasharray", "10, 10")
-    .attr("class", "marker-line");
-
+                    .attr("x1", 0)
+                    .attr("x2", width * proportion)
+                    .attr("y1", -1 * (height - y(data.income)))
+                    .attr("y2", -1 * (height - y(data.income)))
+                    .attr("stroke-dasharray", "10, 10")
+                    .attr("class", "marker-line");
+                // debugger;
                 // private pension
                 var private_pos = height - y(data.private_pension + data.occupational_pension + data.state_pension)
                 bar.append("rect")
