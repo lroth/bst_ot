@@ -23,6 +23,8 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.private_pension      = 0;
     $scope.occupational_pension = 0;
     $scope.total                = 0;
+    $scope.future_earnings      = 0;
+    $scope.free                 = 0;
 
     // helpers
     $scope.age_diff             = 0;
@@ -50,6 +52,7 @@ app.controller('AppCtrl', function ($scope, $http) {
         // debugger;
         $scope.total     = $scope.private_pension + $scope.occupational_pension + $scope.state_pension;
         $scope.shortfall = $scope.income - $scope.total;
+        $scope.free      = $scope.total * 0.25;
 
         // console.log($scope.retirement_age, 'controller');
         $scope.d3Data = {
