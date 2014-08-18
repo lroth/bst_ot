@@ -11,13 +11,13 @@ app.controller('AppCtrl', function ($scope, $http) {
 
     // user data
     $scope.death                = 90;
-    $scope.age                  = 40;
-    $scope.salary               = 30000;
-    $scope.saved_money          = 60000;
-    $scope.monthly_payments     = 300;
+    $scope.age                  = 0;
+    $scope.salary               = 0;
+    $scope.saved_money          = 0;
+    $scope.monthly_payments     = 0;
     $scope.retirement_age       = 65;
-    $scope.increase_salary      = 1;
-    $scope.income               = 30000;
+    $scope.increase_salary      = 0;
+    $scope.income               = 0;
 
     // results
     $scope.shortfall            = 0;
@@ -45,11 +45,11 @@ app.controller('AppCtrl', function ($scope, $http) {
 
         $scope.occupational_pension = $scope.increased_salary * (($scope.retirement_age - 30)/80);
 
-        $scope.private_pension      = ($scope.saved_money * (Math.pow(0.05, $scope.age_diff))) +
+        $scope.private_pension      = (($scope.saved_money * (Math.pow(1.05, $scope.age_diff))) +
                                       (
                                         ($scope.monthly_payments * 12) *
-                                        ((Math.pow(0.05, $scope.age_diff))/0.05)
-                                      ) * 0.05;
+                                        ((Math.pow(1.05, $scope.age_diff))/0.05)
+                                      )) * 0.05;
         // fix expotential
         // debugger;
         // $scope.private_pension = $scope.private_pension.toFixed(5);
@@ -158,6 +158,9 @@ app.directive('d3Chart', [function() {
                 var top_limit = data.increased_salary + (data.increased_salary / 5);
                 if (top_limit < data.income) {
                     top_limit = data.income + (data.income / 10);
+                };
+                if (top_limit < data.total) {
+                    top_limit = data.total + (data.total / 10);
                 };
                 y.domain([0, top_limit]);
 
