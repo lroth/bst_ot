@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,125 +13,95 @@
         <script src="vendor/angular-touch/angular-touch.min.js"></script>
         <script src="vendor/venturocket-angular-slider/build/angular-slider.min.js"></script>
         <!--[if lt IE 9]>
-            <script src="vendor/html5shiv/dist/html5shiv.js"></script>
+            <link rel="stylesheet" href="UI/css/ie.css">
+        <![endif]-->
+        <title>Wesleyan</title>
+        <!--[if lt IE 9]>
+            <script src="UI/js/ie.js"></script>
         <![endif]-->
     </head>
-    <body ng-app="app">
-        <div id="personalSickWidget" ng-controller="AppCtrl" style="height: {{ widget_height }}; overflow: hidden;">
-            <h1>Quick Quote <span>Personal Sick Pay</span></h1>
-            <div class="personal-widget-form">
-                <h2>Client details</h2>
-                <div class="error" ng-show="age_range_error">{{ age_range_error }}</div>
-                <fieldset>
-                    <label>Client age at start <i ng-click="toggleHelp(0)"></i></label>
-                    <div
-                        class="slider"
-                        slider
-                        ng-model="age_start"
-                        floor="17"
-                        ceiling="59"
-                        step="1"
-                        precision="0">
-                    </div>
-                </fieldset>
-                <div class="help" ng-show="tips[0]">
-                    Your client can apply for LV= Personal Sick Pay provided they are aged between 17 years and 59 years inclusive, at entry.
-                    <i ng-click="toggleHelp(0)"></i>
-                </div>
-                <fieldset>
-                    <label>Client age at end <i ng-click="toggleHelp(1)"></i></label>
-                    <div slider class="slider" floor="50" ceiling="70" step="1" precision="0" ng-model="age_end"></div>
-                </fieldset>
-                <div class="help" ng-show="tips[1]">
-                    Subject to a minimum term of 5 years, your client can choose for their LV= Personal Sick Pay cover to end when they are aged between 50 years and 70 years inclusive.
-                    <i ng-click="toggleHelp(1)"></i>
-                </div>
-                <div class="error" ng-show="cover_value_error">{{ cover_value_error }}</div>
-                <fieldset>
-                    <label>Cover amount <i ng-click="toggleHelp(2)"></i></label>
-                    <div class="input-prepend">
-                      <span class="add-on">&pound;</span>
-                      <input type="text" ng-model="amount">
-                    </div>
-                    <div class="switcher">
-                        {{ paid_names[paid_type] }} <a href="javascript:;" ng-click="changePaid()">Change</a>
-                    </div>
-                </fieldset>
-                <div class="help" ng-show="tips[2]">
-                    Subject to our eligibility and earnings rules, your client can buy cover  from £100 up to a maximum of £8,333 a month (equivalent to £1,923 a week). When they claim, they can choose if they want benefits to be paid weekly or monthly. The minimum monthly premium is £5.
-                    <i ng-click="toggleHelp(2)"></i>
-                </div>
-                <fieldset>
-                    <label>Waiting period <i ng-click="toggleHelp(3)"></i></label>
-                    <div slider class="slider" floor='0' ceiling='7' ng-model='period' translate-fn='translateFn'></div>
-                    <div class="note">In Weeks</div>
-                </fieldset>
-                <div class="help" ng-show="tips[3]">
-                    Your client can choose when they want their LV= Personal Sick Pay Benefits to start.  We offer a ‘day one’ option or 1, 4, 8, 13, 26, 52 or 104 week options (for ‘day one’ cover your client will need to be off work for 3 days in a row).
-                    <i ng-click="toggleHelp(3)"></i>
-                </div>
+    <body>
+        <header>
+            <div class="title">
+                <img src="UI/images/logo.png">
             </div>
-            <div class="personal-widget-results" id="results">
-                <h2>Resulting monthly premium options for <span>£{{ amount }}</span> of cover <span>{{ paid_names[paid_type].toLowerCase() }}</span>:</h2>
-                <p>
-                    <span>Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(4)"></i></span> <em ng-hide="result_min_errors[0]">&pound;</em>{{ personal_guaranteed }}
-                </p>
-                <div class="error" ng-show="result_min_errors[0]">{{ result_min_errors[0] }}</div>
-                <div class="help" ng-show="tips[4]">
-                    The price your client pays in the future for each £1 of LV= Personal Sick Pay will normally go up each year at the rate set out in our guaranteed future prices table.<br/>
-                    In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
-                    <i ng-click="toggleHelp(4)"></i>
-                </div>
-                <p>
-                    <span class="sec">Personal Sick Pay with reviewable future prices: <i ng-click="toggleHelp(5)"></i></span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ personal_reviewable }}
-                </p>
-                <div class="error" ng-show="result_min_errors[1]">{{ result_min_errors[1] }}</div>
-                <div class="help" ng-show="tips[5]">
-                    The price your client pays in the future for each £1 of Personal Sick Pay will normally go up each year at the rate set out in our reviewable future prices table for the first five years. After that we’ll review the prices in the table every five years and the amounts quoted in the table could change (either by going up or own).<br/>
-                    In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
-                    <i ng-click="toggleHelp(5)"></i>
-                </div>
-                <p>
-                    <span class="thrd">Budget Personal Sick Pay with guaranteed future prices: <i ng-click="toggleHelp(6)"></i></span> <em ng-hide="result_min_errors[2]">&pound;</em>{{ budget_personal_guaranteed }}
-                </p>
-                <div class="error" ng-show="result_min_errors[2]">{{ result_min_errors[2] }}</div>
-                <div class="help" ng-show="tips[6]">
-                    The price your client pays in the future for each £1 of LV= Personal Sick Pay will normally go up each year at the rate set out in our guaranteed future prices table.<br/>
-                    In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again, but up to a maximum of two years for each claim. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
-                    <i ng-click="toggleHelp(6)"></i>
-                </div>
-                <p>
-                    <span class="frth">Budget Personal Sick Pay with reviewable future prices: <i ng-click="toggleHelp(7)"></i></span> <em ng-hide="result_min_errors[3]">&pound;</em>{{ budget_personal_reviewable }}
-                </p>
-                <div class="error" ng-show="result_min_errors[3]">{{ result_min_errors[3] }}</div>
-                <div class="help" ng-show="tips[7]">
-                    The price your client pays in the future for each £1 of Personal Sick Pay will normally go up each year at the rate set out in our reviewable future prices table for the first five years. After that we’ll review the prices in the table every five years and the amounts quoted in the table could change (either by going up or own).<br/>
-                    In the event of an accepted claim, we’ll keep paying your client until they become well enough to work in their occupation again, but up to a maximum of two years for each claim. We’d also stop paying your client when their insurance reaches the end date they chose, or if they die.
-                    <i ng-click="toggleHelp(7)"></i>
-                </div>
-                <small>
-                    <h6>The results displayed</h6>
-                    <ul>
-                        <li>are indicative only and do not take into account any relevant eligibility or earnings rules or underwriting assessments.</li>
-                        <li>are monthly premiums payable in the first year. Premiums will go up based on your client’s age and amount of cover.</li>
-                        <li>do not include any Waiver of Premium benefit or any plan discounts that may apply.</li>
-                        <li>LV= Personal Sick Pay is part of the LV= Flexible Protection Plan.  The minimum Plan monthly premium is £5.</li>
-                    </ul>
-                </small>
+            <div class="info">
+                <ul>
+                    <li class="yellowMark"><a href="#">My Wesleyan</a></li>
+                    <li><a href="#">Wesleyan Bank Online</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <div class="clear"></div>
+                <h3>Customer Relationship Center:</h3>
+                <h2>0800 294 9909</h2>
+                <p>Monday to Friday 8.30am - 6.30pm</p>
+                <p>Saturday 9.00am - 2.00pm</p>
+                <a href="#">Request a call back</a>
             </div>
-            21441950 05/14
-            <!--<div class="personal-widget-actions">
-                <form action="" method="post" accept-charset="utf-8" class="email-form" ng-show="send_email" ng-submit="triggerSendEmail()">
-                    <label>Email address: </label>
-                    <input type="text" ng-model="email"/>
-                    <input type="submit" class="btn" value="Send"/>
-                </form>
-
-                <a href="#" class="btn" ng-click="sendEmail()">Email</a>
-                <a href="#" class="btn" ng-click="getPdf()">PDF</a>
-                <a href="#" class="btn" ng-click="print('results')">Print</a>
-            </div>-->
-        </div>
+        </header>
+        <section class="main">
+            <div class="container bordered">
+                <h2>Welcome to YourWesleyan.co.uk</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+            </div>
+            <div class="boxes bordered">
+                <div class="box">
+                    <a href="graph.html"><img src="UI/images/image1.png"></a>
+                    <p>Retirement & Pension</p>
+                    <span class="danger"></span>
+                </div>
+                <div class="box">
+                    <img src="UI/images/image2.png">
+                    <p>Emergency</p>
+                    <span class="success"></span>
+                </div>
+                <div class="box">
+                    <img src="UI/images/image3.png">
+                    <p>Protection</p>
+                    <span class="success"></span>
+                </div>
+                <div class="box">
+                    <img src="UI/images/image4.png">
+                    <p>Income Protection</p>
+                    <span class="danger"></span>
+                </div>
+                <div class="box">
+                    <img src="UI/images/image5.png">
+                    <p>Savings</p>
+                    <span class="warning"></span>
+                </div>
+                <div class="box">
+                    <img src="UI/images/image6.png">
+                    <p>Investments</p>
+                    <span class="success"></span>
+                </div>
+                <div class="box">
+                    <img src="UI/images/image7.png">
+                    <p>Mortgages</p>
+                    <span class="success"></span>
+                </div>
+                <div class="box">
+                    <img src="UI/images/image8.png">
+                    <p>IHT</p>
+                    <span class="start"></span>
+                </div>
+                <div class="box">
+                    <img src="UI/images/image9.png">
+                    <p>Commercial</p>
+                    <span class="start"></span>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2014 Wesleyan Assurance Society</p>
+        </footer>
         <script src="UI/js/app.js"></script>
-   </body>
+        <!--[if lt IE 9]>
+            <script src="UI/js/custom.ie.js"></script>
+        <![endif]-->
+    </body>
 </html>
