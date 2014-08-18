@@ -1,38 +1,22 @@
-Calculations:
+My feedback is as follows:
 
-Hopefully these are simple, but still detailed enough for the tool to work convincingly.
-
-How much do you have saved in a private pension/isa = [value entered] x (1.05)^(retirement age – current age)
-Average monthly payments into those private pension plans = ([value entered] x 12) x ((1.05^(retirement age – current age)-1)/0.05)
-
-The values produced by these calculations would then be added together, and the income they produce each year in retirement would be this total multiplied by 0.05
-
-So in the example sent through:
-
-Existing: £60,000 x (1.05)^25 = £203,181
-Regular: £3600 x ((1.05^25-1)/0.05) = £171,817
-Total: £203,181 + £171,817 = £374,998
-Retirement Income: £374,999 x 0.05 = £18,749 per annum
-
-To keep the occupational pension calculation simple you could just assume their career starts at age 30, and the person builds up entitlement to 1/80th of their salary at retirement for every year past this which they work. So, assuming we know an estimate for salary at retirement, you just multiply that figure by: [salary at retirement] x ((age at retirement-30)/80)
-
-So, if salary at retirement was £100,000, at age 67: £100,000 x (67-30)/80 = £46,250.
-
-
-FIELDS DEFINITIONS:
-
-1. Age: - min/max
-2. Current annual salary: min/max
-3. How much do have you saved in private pension plans / ISA for retirement: [value entered] x (1.05)^(retirement age – current age)
-> question - should it be editable?
-4. Average monthly payments into those private pension plans and ISAs until you retire?:
-> formula is not working with your sample calculations - please provide it one more time and question should it be editable.
-5. Planned retirement age - min/max
-6. How much do estimate your salary will increase by every 5 years before you retire (%)
-7. Desired annual retirement income £ - min/max?
-8. Retirement shortfall - FORMULA
-9. Private pension and isa plans (annual gross) - FORMULA
-10. Occupational pension scheme (annual gross) - FORMULA
-11. State pension (annual gross) - FORMULA
-12. 25% tax free lump sum at retirement - FORMULA
-13. Your future career earnings are (in today's terms) - FORMULA
+=== done
+[+] Please add ? after all fields that are a question
+[+] 'The output of [Name] Retirement Income Results:' Please have this text above the graph. And don’t make the name in yellow as you can’t read it!
+>> yellow was taken from the original design.
+[+] Rename ‘Age’ to ‘Current age’
+[+] Add a field underneath this of ‘Age career started’ (but you can make this un editable at 30 for the moment)
+[+] Please move ‘Total Retirement Income’ to above the yellow box and change it to ‘Total annual retirement income’
+[+] Total career earnings still isn’t calculated being calculated at all
+[+] If retirement income is higher than ‘Desired annual retirement’ income you lose the dotted line. Please make the dotted line visable whatever the retirement income
+[+] Some weird things are happening with the graph. See the below when call C is £5000 but if you put in £50,000 is seems to work. Very odd. Obviously the calculations are wrong somewhere.
+>> calculations was fine but the higher limit of the chart was taken from the "salary at retirement" so in the case when the salary was about 6k and the desired income was ie. 30000 it wasn't fit the graph - fixed now.
+[+] Make the default for all fields unentered / 0%
+[+] I really don’t like the way cell E ‘Planned Retirement age’ doesn’t move the retirement age line across on the graph from left to right / right to lefty it just changes the figures. (Please let me know if this causes a problem)
+=== todo
+nothing
+=== comments/questions
+- For all the fields that relate to money please add £ sign before the amounts
+>> results already contain the pound marker, inputs?
+- Cells C and D do not update the graph or figures at all still??? Please use the calculations provided
+>> the formula is wrong - ie. 0,05^(65-40) = 0,05(25) = 2.980232238769539e-33 = "0.000000000000000000000000000000002980232238769539"

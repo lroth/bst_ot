@@ -10,6 +10,7 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.state_pension        = 5811;
 
     // user data
+    $scope.death                = 90;
     $scope.age                  = 40;
     $scope.salary               = 30000;
     $scope.saved_money          = 60000;
@@ -20,7 +21,7 @@ app.controller('AppCtrl', function ($scope, $http) {
 
     // results
     $scope.shortfall            = 0;
-    $scope.private_pension      = 0;
+    $scope.private_pension      = 20;
     $scope.occupational_pension = 0;
     $scope.total                = 0;
     $scope.future_earnings      = 0;
@@ -49,10 +50,16 @@ app.controller('AppCtrl', function ($scope, $http) {
                                         ($scope.monthly_payments * 12) *
                                         ((Math.pow(0.05, $scope.age_diff))/0.05)
                                       ) * 0.05;
+        // fix expotential
         // debugger;
-        $scope.total     = $scope.private_pension + $scope.occupational_pension + $scope.state_pension;
-        $scope.shortfall = $scope.income - $scope.total;
-        $scope.free      = $scope.total * 0.25;
+        // $scope.private_pension = $scope.private_pension.toFixed(5);
+
+        // debugger;
+        // ((retirement age - current age) x current salary) x percentage salary increase - please note the percentage salary increase would be 1.05 for 5%
+        $scope.future_earnings = ($scope.age_diff * (1 * $scope.salary)) * (1 + $scope.increase_salary/100);
+        $scope.total           = $scope.private_pension + $scope.occupational_pension + $scope.state_pension;
+        $scope.shortfall       = $scope.income - $scope.total;
+        $scope.free            = $scope.total * 0.25;
 
         // console.log($scope.retirement_age, 'controller');
         $scope.d3Data = {
@@ -65,7 +72,9 @@ app.controller('AppCtrl', function ($scope, $http) {
             'occupational_pension': $scope.occupational_pension,
             'state_pension':        $scope.state_pension,
             'total':                $scope.total,
-            'income':               $scope.income
+            'future_earnings':      $scope.future_earnings,
+            'income':               $scope.income,
+            'death':                $scope.death
         }
     }
 
@@ -110,19 +119,23 @@ app.directive('d3Chart', [function() {
                           "translate(" + margin.left + "," + margin.top + ")");
 
             // Set the ranges
-            var x = d3.scale.linear().range([0, width - width * proportion]);
-            var x_death = d3.scale.linear().range([width - width * proportion, width]);
             var y = d3.scale.linear().range([height, 0]);
+            var normalize_age = d3.scale.linear().range([0, 1]);
 
             // Define the axes
-            var keywords = ['Age now', 'Retirement Age'];
-
+            var keywords = ['Age now', 'Retirement Age', 'Death'];
             // watch for data changes and re-render
             scope.$watch('data', function(newVals, oldVals) {
               return scope.render(newVals);
             }, true);
 
             scope.render = function(data) {
+                // recalc the proportion
+                normalize_age.domain([data.age, data.death]);
+                proportion = 1 - normalize_age(data.retirement_age);
+
+                var x = d3.scale.linear().range([0, width - width * proportion]);
+                var x_death = d3.scale.linear().range([width - width * proportion, width]);
 
                 var xAxis = d3.svg.axis().scale(x)
                     .orient("bottom")
@@ -140,7 +153,13 @@ app.directive('d3Chart', [function() {
 
                 // set data values
                 x.domain([data.age, data.retirement_age]);
-                y.domain([0, data.increased_salary + (data.increased_salary / 5)]);
+
+                // take the salary at retirement or desired as a maximum graph height
+                var top_limit = data.increased_salary + (data.increased_salary / 5);
+                if (top_limit < data.income) {
+                    top_limit = data.income + (data.income / 10);
+                };
+                y.domain([0, top_limit]);
 
                 var live = [
                     {'x': data.age, 'y': data.salary},
@@ -166,20 +185,7 @@ app.directive('d3Chart', [function() {
                     .attr("class", "shortfall_rect")
                     .attr("transform", "translate(0, "+ (-1 * shortfall) +")")
                     .attr("height", shortfall);
-                // label
-                bar.append("text")
-                    .attr("x", (width * proportion) / 2)
-                    .attr("y", -1 * shortfall - 10)
-                    .style("text-anchor", "middle")
-                    .text('Desired retirement income');
 
-                bar.append("line")
-                    .attr("x1", 0)
-                    .attr("x2", width * proportion)
-                    .attr("y1", -1 * (height - y(data.income)))
-                    .attr("y2", -1 * (height - y(data.income)))
-                    .attr("stroke-dasharray", "10, 10")
-                    .attr("class", "marker-line");
                 // debugger;
                 // private pension
                 var private_pos = height - y(data.private_pension + data.occupational_pension + data.state_pension)
@@ -205,6 +211,21 @@ app.directive('d3Chart', [function() {
                     .attr("transform", "translate(0, "+ (-1 * state_pos) +")")
                     .attr("height", state_pos);
 
+
+                // label
+                bar.append("text")
+                    .attr("x", (width * proportion) / 2)
+                    .attr("y", -1 * (height - y(data.income) + 10))
+                    .style("text-anchor", "middle")
+                    .text('Desired retirement income');
+
+                bar.append("line")
+                    .attr("x1", 0)
+                    .attr("x2", width * proportion)
+                    .attr("y1", -1 * (height - y(data.income)))
+                    .attr("y2", -1 * (height - y(data.income)))
+                    .attr("stroke-dasharray", "10, 10")
+                    .attr("class", "marker-line");
 
                 xAxis.tickValues(x.domain());
                 // Add the X Axis

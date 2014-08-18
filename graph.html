@@ -89,15 +89,19 @@
                                 <input type="text" name="name" ng-model="name">
                             </fieldset>
                             <fieldset>
-                                <label>Age</label>
+                                <label>Current age</label>
                                 <input type="text" name="age" ng-model="age">
+                            </fieldset>
+                            <fieldset>
+                                <label>Age career started</label>
+                                <input type="text" name="age" value="30" disabled="">
                             </fieldset>
                             <fieldset>
                                 <label>Current annual salary</label>
                                 <input type="text" name="salary" ng-model="salary">
                             </fieldset>
                             <fieldset>
-                                <label>How much do have you saved in private pension plans / ISA for retirement</label>
+                                <label>How much do have you saved in private pension plans / ISA for retirement?</label>
                                 <input type="text" name="saved_money" ng-model="saved_money">
                             </fieldset>
                             <fieldset>
@@ -123,7 +127,7 @@
                         <div class="bordered">
                             <div class="error" ng-show="increase_salary_error">{{ increase_salary }}</div>
                             <fieldset>
-                                <label>How much do estimate your salary will increase by every 5 years before you retire (%) </label>
+                                <label>How much do estimate your salary will increase by every 5 years before you retire (%)?</label>
                                 <div
                                     class="slider"
                                     slider
@@ -156,10 +160,10 @@
                             </button>
                     </div>
                     <div class="right-column">
+                        <h3>{{ name }} Retirement Income Results</h3>
 
                         <div d3-chart data="d3Data" height="530" width="750"></div>
 
-                        <h3><span class="yellow">{{ name }}</span> Retirement Income Results</h3>
                         <div class="graph bordered"></div>
                         <div class="results" id="results">
                             <div class="colored bordered">
@@ -168,6 +172,9 @@
                                 </p>
                                 <div class="error" ng-show="result_min_errors[0]">{{ result_min_errors[0] }}</div>
                                 <div class="bordered" style="padding-bottom: 20px;"></div>
+                                <p class="grey">
+                                    <span>Total annual retirement income:</span>&pound;{{ total|number:2 }}
+                                </p>
                                 <p class="yellow">
                                     <span>Private pension and isa plans (annual gross)</span> <em ng-hide="result_min_errors[1]">&pound;</em>{{ private_pension|number:2 }}
                                 </p>
@@ -187,12 +194,7 @@
                                 </p>
                                 <div class="error" ng-show="result_min_errors[4]">{{ result_min_errors[4] }}</div>
                                 <p class="white">
-                                    <span>Your future career earnings are (in today's terms)</span> <em ng-hide="result_min_errors[5]">&pound;</em>{{ future_earnings }}
-                                </p>
-                                <div class="error" ng-show="result_min_errors[5]">{{ result_min_errors[5] }}</div>
-
-                                <p class="grey">
-                                    <span>Total Retirement income:</span>&pound;{{ total|number:2 }}
+                                    <span>Your future career earnings are (in today's terms)</span> <em ng-hide="result_min_errors[5]">&pound;</em>{{ future_earnings|number:2 }}
                                 </p>
                             </div>
                         </div>
