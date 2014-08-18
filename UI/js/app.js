@@ -123,7 +123,7 @@ app.directive('d3Chart', [function() {
             var normalize_age = d3.scale.linear().range([0, 1]);
 
             // Define the axes
-            var keywords = ['Age now', 'Retirement Age', 'Death'];
+            var keywords = ['Age now', 'Retirement Age'];
             // watch for data changes and re-render
             scope.$watch('data', function(newVals, oldVals) {
               return scope.render(newVals);
