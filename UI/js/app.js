@@ -239,6 +239,7 @@ app.directive('d3Chart', [function() {
 
                 // xAxis.domain([0, 100]);
                 xAxis.scale(x_death);
+                xAxis.tickFormat("");
                 svg.append("g")
                     .attr("class", "x axis")
                     .attr("transform", "translate(0," + height + ")")
