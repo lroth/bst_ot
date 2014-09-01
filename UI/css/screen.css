@@ -3161,7 +3161,11 @@ footer .banner {
   height: 35px;
   margin-top: 45px;
 }
-/* line 368, ../sass/_layout.scss */
+/* line 369, ../sass/_layout.scss */
+.slider .input.low, .slider .input.selection {
+  left: -9999px !important;
+}
+/* line 374, ../sass/_layout.scss */
 .slider span.full, .slider span.steps {
   height: 4px;
   z-index: 0;
@@ -3174,21 +3178,21 @@ footer .banner {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 380, ../sass/_layout.scss */
+/* line 386, ../sass/_layout.scss */
 .slider span.full {
   background: #cccccc;
 }
-/* line 383, ../sass/_layout.scss */
+/* line 389, ../sass/_layout.scss */
 .slider span.steps {
   position: relative !important;
 }
-/* line 390, ../sass/_layout.scss */
+/* line 396, ../sass/_layout.scss */
 .slider span.selection {
   background: #ffc709;
-  top: 5px;
+  top: 10px;
   height: 4px;
 }
-/* line 395, ../sass/_layout.scss */
+/* line 401, ../sass/_layout.scss */
 .slider span.pointer {
   cursor: pointer;
   width: 18px;
@@ -3196,7 +3200,11 @@ footer .banner {
   background: url("../images/marker.png") no-repeat;
   background-size: contain;
 }
-/* line 408, ../sass/_layout.scss */
+/* line 407, ../sass/_layout.scss */
+.slider span.pointer.low {
+  display: none !important;
+}
+/* line 414, ../sass/_layout.scss */
 .slider span.bubble {
   top: -52px;
   background: #565656;
@@ -3207,7 +3215,7 @@ footer .banner {
   min-width: 16px;
   text-align: center;
 }
-/* line 417, ../sass/_layout.scss */
+/* line 423, ../sass/_layout.scss */
 .slider span.bubble:after {
   content: "";
   background: url("../images/triangleBottom.png") top center no-repeat;
@@ -3219,11 +3227,11 @@ footer .banner {
   text-align: center;
   overflow: visible;
 }
-/* line 428, ../sass/_layout.scss */
+/* line 434, ../sass/_layout.scss */
 .slider span.bubble.floor, .slider span.bubble.ceiling {
   opacity: 0 !important;
 }
-/* line 363, ../sass/_layout.scss */
-.slider span.bubble.selection {
+/* line 438, ../sass/_layout.scss */
+.slider span.bubble.low, .slider span.bubble.selection {
   display: none !important;
 }

@@ -364,6 +364,12 @@ footer {
     position: relative;
     height: 35px;
     margin-top: 45px;
+    .input {
+        &.low,
+        &.selection {
+            left: -9999px !important;
+        }
+    }
     span {
         &.full, &.steps {
             height: 4px;
@@ -389,7 +395,7 @@ footer {
         }
         &.selection {
             background: $yellow;
-            top: 5px;
+            top: 10px;
             height: 4px;
         }
         &.pointer {
@@ -398,9 +404,9 @@ footer {
             height: 16px;
             background: url('../images/marker.png') no-repeat;
             background-size: contain;
-            // &.low {
-            //     display: none !important;
-            // }
+            &.low {
+                display: none !important;
+            }
             // &.high {
             //     z-index: 99;
             // }
@@ -428,7 +434,7 @@ footer {
             &.floor, &.ceiling {
                 opacity: 0 !important;
             }
-            // &.low,
+            &.low,
             &.selection {
                 display: none !important;
             }
