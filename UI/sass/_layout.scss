@@ -39,13 +39,13 @@ header {
             float: right;
             li {
                 float: left;
-                padding-right: 10px;
+                padding-right: 14px;
                 &:last-child {
                     padding-right: 0;
                 }
                 &.yellowMark {
                     background: url('../images/yellowTriangle.png') right no-repeat;
-                    margin-right: 15px;
+                    margin-right: 2px;
                 }
                 &::before {
                     content: "|";
@@ -133,7 +133,7 @@ header {
             @include gridle_state(mobile) {
                 @include gridle(12);
             }
-            padding-bottom: 50px !important;
+            height: 234px;
             p {
                 font-size: 18px;
                 font-weight: 700;
@@ -184,6 +184,10 @@ header {
         }
         h3 {
             text-transform: uppercase;
+            .yellow {
+                color: $yellow;
+                font-weight: bold;
+            }
         }
         .results {
             .colored {
@@ -295,7 +299,7 @@ footer {
         &.full, &.steps {
             height: 4px;
             z-index: 0;
-            top: 5px;
+            top: 10px;
             left: 0;
             cursor: pointer;
             -webkit-border-radius: 5px;
@@ -309,6 +313,10 @@ footer {
         }
         &.steps {
             background: $yellow;
+            position: relative !important;
+            left: -5%;
+            width: 101.5px;
+            // width: 0;
         }
         &.selection {
             background: red;
