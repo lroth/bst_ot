@@ -312,14 +312,14 @@ footer {
             background: $grey;
         }
         &.steps {
-            background: $yellow;
+            // background: $yellow;
             position: relative !important;
-            left: -5%;
-            width: 101.5px;
+            // left: -5%;
+            // width: 101.5px;
             // width: 0;
         }
         &.selection {
-            background: red;
+            background: $yellow;
             top: 5px;
             height: 4px;
         }
@@ -359,9 +359,9 @@ footer {
             &.floor, &.ceiling {
                 opacity: 0 !important;
             }
-            &.low,
+            // &.low,
             &.selection {
-                // display: none !important;
+                display: none !important;
             }
 
         }

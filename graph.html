@@ -109,11 +109,12 @@
                         <div class="bordered">
                             <div class="error" ng-show="retirement_age_error">{{ retirement_age_error }}</div>
                             <fieldset>
-                                <label>Planned retirement age</label>
+                                <label>Planned retirement age</label> {{ retirement_age }}
                                 <div
                                     class="slider"
                                     slider
                                     ng-model="retirement_age"
+                                    ng-model-range="retirement_age_range"
                                     floor="50"
                                     ceiling="80"
                                     step="1"
