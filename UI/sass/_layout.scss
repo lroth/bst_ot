@@ -1,7 +1,6 @@
 header {
     @include gridle(12);
     padding: 0 0 40px 0;
-    border-bottom: 1px solid $grey;
     .title {
         @include gridle(7);
         padding: 0;
@@ -117,6 +116,9 @@ header {
 .main {
     @include gridle(12);
     padding-top: 60px;
+    @include gridle_state(tablet) {
+        padding-top: 0;
+    }
     .container {
         h2 {
             color: $yellow;
@@ -238,6 +240,73 @@ header {
         }
         @include gridle_state(mobile) {
             @include gridle(12);
+        }
+    }
+    .form-to-left {
+        padding: 40px 0;
+        @include gridle_state(tablet) {
+            padding-top: 0;
+        }
+        fieldset {
+            @include gridle(2.4);
+            position: relative;
+            @include gridle_state(tablet) {
+                @include gridle(6);
+            }
+            @include gridle_state(mobile) {
+                @include gridle(12);
+            }
+            &#name {
+                width: 25%;
+                @include gridle_state(tablet) {
+                    width: auto;
+                }
+                input {
+                    width: 80%;
+                    @include gridle_state(tablet) {
+                        width: auto;
+                    }
+                }
+            }
+            &#age {
+                width: 10%;
+                @include gridle_state(tablet) {
+                    width: auto;
+                }
+                input {
+                    width: 40%;
+                    @include gridle_state(tablet) {
+                        width: auto;
+                    }
+                }
+            }
+            &#salary {
+                width: 21%;
+                @include gridle_state(tablet) {
+                    width: auto;
+                }
+            }
+            &#saved_money, &#monthly_payments {
+                width: 22%;
+                @include gridle_state(tablet) {
+                    width: auto;
+                }
+            }
+            label {
+                display: block;
+                position: absolute;
+                line-height: 20px;
+                bottom: 0;
+                margin-bottom: 50px;
+                padding-right: 10px;
+                @include gridle_state(tablet) {
+                    position: initial;
+                    margin-bottom: 10px;
+                }
+            }
+            input {
+                width: 72%;
+            }
         }
     }
     fieldset {

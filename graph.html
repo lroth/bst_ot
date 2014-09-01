@@ -78,34 +78,31 @@
         </header>
         <section class="main">
             <div class="container">
+                <div class="bordered form-to-left">
+                    <fieldset id="name">
+                        <label>Name</label>
+                        <input type="text" name="name" ng-model="name">
+                    </fieldset>
+                    <fieldset id="age">
+                        <label>Age</label>
+                        <input type="text" name="age" ng-model="age">
+                    </fieldset>
+                    <fieldset id="salary">
+                        <label>Current annual salary</label>
+                        <input type="text" name="salary" ng-model="salary">
+                    </fieldset>
+                    <fieldset id="saved_money">
+                        <label>How much do have you saved in private pension plans / ISA for retirement?</label>
+                        <input type="text" name="saved_money" ng-model="saved_money">
+                    </fieldset>
+                    <fieldset id="monthly_payments">
+                        <label>Average monthly payments into those private pension plans and ISAs until you retire?</label>
+                        <input type="text" name="monthly_payments" ng-model="monthly_payments">
+                    </fieldset>
+                    <div class="clear"></div>
+                </div>
                 <div class="bordered">
                     <div class="left-column">
-                        <div class="bordered">
-                            <fieldset>
-                                <label>Name</label>
-                                <input type="text" name="name" ng-model="name">
-                            </fieldset>
-                            <fieldset>
-                                <label>Current age</label>
-                                <input type="text" name="age" ng-model="age">
-                            </fieldset>
-                            <fieldset>
-                                <label>Age career started</label>
-                                <input type="text" name="age" value="30" disabled="">
-                            </fieldset>
-                            <fieldset>
-                                <label>Current annual salary</label>
-                                <input type="text" name="salary" ng-model="salary">
-                            </fieldset>
-                            <fieldset>
-                                <label>How much do have you saved in private pension plans / ISA for retirement (&pound;)?</label>
-                                <input type="text" name="saved_money" ng-model="saved_money">
-                            </fieldset>
-                            <fieldset>
-                                <label>Average monthly payments into those private pension plans and ISAs until you retire (&pound;)?</label>
-                                <input type="text" name="monthly_payments" ng-model="monthly_payments">
-                            </fieldset>
-                        </div>
                         <div class="bordered">
                             <div class="error" ng-show="retirement_age_error">{{ retirement_age_error }}</div>
                             <fieldset>
