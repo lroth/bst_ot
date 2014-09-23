@@ -10,8 +10,7 @@
     "angular-touch": "~1.2.16",
     "jspdf": "git://github.com/MrRio/jsPDF.git",
     "gridle": "~1.1.0",
-    "d3": "~3.4.11",
-    "angular-cookies": "~1.2.25"
+    "d3": "~3.4.11"
   },
   "resolutions": {
     "angular": "1.2.25"
