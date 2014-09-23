@@ -8,6 +8,7 @@
     "angular": "~1.2.16",
     "venturocket-angular-slider": "~0.3.2",
     "angular-touch": "~1.2.16",
-    "jspdf": "git://github.com/MrRio/jsPDF.git"
+    "jspdf": "git://github.com/MrRio/jsPDF.git",
+    "angular-cookies": "~1.2.25"
   }
 }

@@ -1,8 +1,8 @@
 // main app
-var app = angular.module('app', ['vr.directives.slider']);
+var app = angular.module('app', ['vr.directives.slider', 'ngCookies']);
 
 // Controller
-app.controller('AppCtrl', function ($scope, $http) {
+app.controller('AppCtrl', function ($scope, $http, $cookies) {
     $scope.csv_data      = false;
     $scope.widget_height = '0px';
     $scope.tips          = {};
@@ -17,8 +17,11 @@ app.controller('AppCtrl', function ($scope, $http) {
     $scope.divides    = [52/12, 12/52];
 
     // default values
-    $scope.paid_type         = 0;
-    $scope.amount            = 0;
+    $scope.paid_type         = $cookies.paid_type ? $cookies.paid_type : 0;
+    $scope.amount            = $cookies.amount ? $cookies.amount : 0;
+    $scope.age_start         = $cookies.age_start ? $cookies.age_start : 0;
+    $scope.age_end           = $cookies.age_end ? $cookies.age_end : 0;
+    $scope.period            = $cookies.period ? $cookies.period : 0;
     $scope.amount_monthly    = 0;
     $scope.send_email        = false;
     $scope.age_range_error   = false;
@@ -42,6 +45,7 @@ app.controller('AppCtrl', function ($scope, $http) {
     }).success(function(data, status, headers, config) {
         $scope.csv_data      = data;
         $scope.widget_height = 'auto';
+        calc();
     });
 
     // paid switcher
@@ -155,6 +159,13 @@ app.controller('AppCtrl', function ($scope, $http) {
             $scope.personal_reviewable_info        = calc_info(1, min_value);
             $scope.budget_personal_guaranteed_info = calc_info(2, min_value);
             $scope.budget_personal_reviewable_info = calc_info(3, min_value);
+
+            // store data in cookies
+            $cookies.amount    = $scope.amount;
+            $cookies.age_start = $scope.age_start;
+            $cookies.age_end   = $scope.age_end;
+            $cookies.paid_type = $scope.paid_type;
+            $cookies.period    = $scope.period;
         }
     }
 
