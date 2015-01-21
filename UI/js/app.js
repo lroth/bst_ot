@@ -12,7 +12,7 @@ app.controller('AppCtrl', function ($scope, $http, $cookies) {
     $scope.paid_names = ['Paid Monthly', 'Paid Weekly'];
     $scope.max_amount = [8333, 1923];
     $scope.min_value  = [5, 0];
-    $scope.min_cover  = [100, 23];
+    $scope.min_cover  = [500, 23];
     // $scope.divides    = [4.33, 0.23];
     $scope.divides    = [52/12, 12/52];
 
