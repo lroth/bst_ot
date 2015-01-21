@@ -8,7 +8,7 @@ app.controller('AppCtrl', function ($scope, $http, $cookies) {
     $scope.tips          = {};
 
     // dictionaries
-    $scope.periods    = [0, 1, 4, 8, 13, 26, 52, 104];
+    $scope.periods    = [0, 1, 4, 8, 13, 26, 52];
     $scope.paid_names = ['Paid Monthly', 'Paid Weekly'];
     $scope.max_amount = [8333, 1923];
     $scope.min_value  = [5, 0];
