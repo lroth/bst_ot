@@ -12,7 +12,7 @@ app.controller('AppCtrl', function ($scope, $http, $cookies) {
     $scope.paid_names = ['Paid Monthly', 'Paid Weekly'];
     $scope.max_amount = [8333, 1923];
     $scope.min_value  = [5, 0];
-    $scope.min_cover  = [500, 23];
+    $scope.min_cover  = [500, 115];
     // $scope.divides    = [4.33, 0.23];
     $scope.divides    = [52/12, 12/52];
 
@@ -120,13 +120,19 @@ app.controller('AppCtrl', function ($scope, $http, $cookies) {
     function calc_value (idx, min) {
         var value = $scope.amount_monthly * get_multiplier(idx);
         if (value) {
-            //if min
-            if (value < min) {
-                $scope.result_min_errors[idx] = 'under the Flexible Protection Plan minimum £5 monthly premium';
+            // if global min
+            if ($scope.amount < $scope.min_cover[$scope.paid_type]) {
 
                 return 'N/A';
             } else {
-                $scope.result_min_errors[idx] = false;
+                //if min
+                if (value < min) {
+                    $scope.result_min_errors[idx] = 'under the Flexible Protection Plan minimum £5 monthly premium';
+
+                    return 'N/A';
+                } else {
+                    $scope.result_min_errors[idx] = false;
+                }
             }
             return round(Math.max(value, min || 0));
         }
